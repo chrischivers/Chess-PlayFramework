@@ -1,0 +1,19 @@
+New log file opened at Wed Dec 30 11:18:20 GMT 2015 by 12333@chrischivers-W65-67SR
+Taking next connection to: 44516
+New client attempting to connect on port: 45094-44516
+  Address = /127.0.1.1:44516
+This client on port 45094 has uuid 38acfdea-b29d-44e7-bba2-783d83a1e1a8 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-38acfdea-b29d-44e7-bba2-783d83a1e1a8
+Taking next connection to: 44516
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 44516
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 44516
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 12333@chrischivers-W65-67SR logs at Wed Dec 30 11:27:20 GMT 2015, goodbye.
