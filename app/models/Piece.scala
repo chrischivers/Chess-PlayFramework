@@ -6,10 +6,10 @@ package models
 trait Piece {
 
   val pieceName:String
-  var ownedBy:Player
+  var owner:Player
   var taken = false
 
-  def isMoveValid(from:(Int,Int), to:(Int,Int))
+  def canPiecePerformMove(from:(Int,Int), to:(Int,Int)):Boolean
   
   override def toString:String = pieceName
 

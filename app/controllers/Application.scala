@@ -20,11 +20,20 @@ object Application extends Controller {
 
   def processMove(gameID:String, from:String, to:String) = Action {
     println("here")
-    val moveFromSplt = from.split(",").map(_.toInt)
-    val moveToSplt = to.split(",").map(_.toInt)
+    val moveFromSplit = from.split(",").map(_.toInt)
+    val moveFrom = (moveFromSplit(0), moveFromSplit(1))
+    val moveToSplit = to.split(",").map(_.toInt)
+    val moveTo = (moveToSplit(0), moveToSplit(1))
     val game = activeGames.get(gameID)
     if (game.isDefined) {
-      println("Piece is: " + game.get.board.state(moveFromSplt(0))(moveFromSplt(1)))
+      println("Piece is: " + game.get.board.state(moveFrom._1)(moveFrom._2))
+      if (game.get.isMoveValid(moveFrom,moveTo)) {
+        println("Move valid")
+        game.get.updateBoard(moveFrom,moveTo)
+        println("Board updaed")
+      } else {
+        println("Move invalid")
+      }
     } else {
       println("Not an active game")
     }
