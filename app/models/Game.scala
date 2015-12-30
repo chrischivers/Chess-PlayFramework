@@ -6,7 +6,6 @@ import controllers.Application
 class Game() {
 
   var gameID = "1234" //TODO sort this with UUID
-  Application.addActiveGame(this)
   var nextPlayerToGo:Player = new Player1("Player 1")
   val board: Board = Game.setUpNewBoard()
 

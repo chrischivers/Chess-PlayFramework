@@ -1,67 +1,64 @@
-@(game: models.Game)
+@(gameID: String)
 <!DOCTYPE html>
-
-<script>
-
-function linkClick(id) {
-    var moveFrom = document.getElementById("MoveFrom");
-    var moveTo = document.getElementById("MoveTo");
-   if (moveFrom.textContent == "") {
-        moveFrom.textContent = id;
-   } else {
-    if (moveTo.textContent == "") {
-        moveTo.textContent = id;
-    } else {
-        moveTo.textContent = "";
-        moveFrom.textContent = id;
-    }
-   }
-
-}
-
-function submitMove() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (xhttp.readyState == 4 && xhttp.status == 200) {
-        alert(xhttp.responseText);
-      }
-    };
-    xhttp.open("GET", "move/1234/" + document.getElementById("MoveFrom").textContent + "/" + document.getElementById("MoveTo").textContent, true);
-    xhttp.send();
-
-
-}
-
-
-
-</script>
-
 
 <html>
     <head>
         <title>Chess</title>
     </head>
     <body>
-        <table border="1" align="center">
-        @for(y <- game.board.state.indices) {
-            <tr height="100px">
-            @for(x <- game.board.state(y).indices) {
-                @if(game.board.state(x)(y) == null) {
-                    <td width="100px" align="center">
-                        <a href="#" id="@x,@y" onclick="linkClick(this.id);return false;">-</a>
-                    </td>
-                }else {
-                    <td width="100px" align="center">
-                        <a href="#" id="@x,@y" onclick="linkClick(this.id);return false;">@game.board.state(x)(y)</a>
-                    </td>
+        <script>
+
+            function linkClick(id) {
+                var moveFrom = document.getElementById("MoveFrom");
+                var moveTo = document.getElementById("MoveTo");
+               if (moveFrom.textContent == "") {
+                    moveFrom.textContent = id;
+               } else {
+                if (moveTo.textContent == "") {
+                    moveTo.textContent = id;
+                } else {
+                    moveTo.textContent = "";
+                    moveFrom.textContent = id;
                 }
+               }
+
             }
-            </tr>
-        }
-        </table>
 
+            function setUpXhttp() {
+             var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                  if (xhttp.readyState == 4 && xhttp.status == 200) {
+                       if(xhttp.getResponseHeader("RESULT") === "SUCCESS") {
+                            document.getElementById("chess_board").innerHTML = xhttp.responseText;
+                       } else {
+                            alert(xhttp.getResponseHeader("RESULT"));
+                       }
+                  }
+                };
+                return xhttp;
+            }
 
-        <table>
+            function getBoard() {
+                var xhttp = setUpXhttp();
+                xhttp.open("GET", "board/1234", true);
+                xhttp.send();
+
+            }
+
+            function submitMove() {
+               var xhttp = setUpXhttp();
+                xhttp.open("GET", "move/1234/" + document.getElementById("MoveFrom").textContent + "/" + document.getElementById("MoveTo").textContent, true);
+                xhttp.send();
+            }
+
+            getBoard();
+
+        </script>
+
+        <div id="chess_board">
+
+        </div>
+        <table id="move_list">
             <tr>
                 <td>Move From:</td>
                 <td id="MoveFrom"></td>

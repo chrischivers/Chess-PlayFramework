@@ -1,0 +1,19 @@
+@(game: Game)
+<!DOCTYPE html>
+<table border="1" align="center">
+  @for(y <- game.board.state.indices) {
+    <tr height="100px">
+    @for(x <- game.board.state(y).indices) {
+      @if(game.board.state(x)(y) == null) {
+        <td width="100px" align="center">
+          <a href="#" id="@x,@y" onclick="linkClick(this.id);return false;">-</a>
+        </td>
+      }else {
+        <td width="100px" align="center">
+          <a href="#" id="@x,@y" onclick="linkClick(this.id);return false;">@game.board.state(x)(y)</a>
+        </td>
+      }
+    }
+    </tr>
+  }
+</table>

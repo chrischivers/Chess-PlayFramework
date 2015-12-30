@@ -15,7 +15,9 @@ object Application extends Controller {
   private var activeGames:Map[String, Game] = Map()
 
   def index = Action {
-    Ok(views.html.main(new Game()))
+    val game = new Game()
+    activeGames = activeGames + (game.gameID -> game)
+    Ok(views.html.main(game.gameID))
   }
 
   def processMove(gameID:String, from:String, to:String) = Action {
@@ -24,20 +26,39 @@ object Application extends Controller {
     val moveFrom = (moveFromSplit(0), moveFromSplit(1))
     val moveToSplit = to.split(",").map(_.toInt)
     val moveTo = (moveToSplit(0), moveToSplit(1))
-    val game = activeGames.get(gameID)
-    if (game.isDefined) {
-      println("Piece is: " + game.get.board.state(moveFrom._1)(moveFrom._2))
-      if (game.get.isMoveValid(moveFrom,moveTo)) {
+    val gameOpt = activeGames.get(gameID)
+    if (gameOpt.isDefined) {
+      val game = gameOpt.get
+      println("Piece is: " + game.board.state(moveFrom._1)(moveFrom._2))
+      if (game.isMoveValid(moveFrom,moveTo)) {
         println("Move valid")
-        game.get.updateBoard(moveFrom,moveTo)
-        println("Board updaed")
+        game.updateBoard(moveFrom,moveTo)
+        println("Board updated")
+        Ok(views.html.board(game)).withHeaders(
+          ("RESULT", "SUCCESS"))
       } else {
         println("Move invalid")
+        Ok("N/A").withHeaders(
+          ("RESULT","INVALID_MOVE")
+        )
       }
     } else {
       println("Not an active game")
+      Ok("N/A").withHeaders(
+        ("RESULT","INVALID_GAME")
+      )
     }
-    Ok("response here")
+  }
+
+  def getBoard(gameID: String) = Action {
+    val gameOpt = activeGames.get(gameID)
+    if (gameOpt.isDefined) {
+      val game = gameOpt.get
+      Ok(views.html.board(game)).withHeaders(
+        ("RESULT", "SUCCESS"))
+    } else {
+      NotImplemented
+    }
   }
 
 
