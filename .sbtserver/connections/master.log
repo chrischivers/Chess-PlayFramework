@@ -1,13 +1,16 @@
-New log file opened at Wed Dec 30 21:41:42 GMT 2015 by 25186@chrischivers-W65-67SR
-Taking next connection to: 41887
-New client attempting to connect on port: 43596-41887
-  Address = /127.0.1.1:41887
-This client on port 43596 has uuid 71fd9108-9898-4c26-bf33-10102214951f configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-71fd9108-9898-4c26-bf33-10102214951f
-Taking next connection to: 41887
-New client attempting to connect on port: 43628-41887
-  Address = /127.0.1.1:41887
-Handshake exception on socket: 43628
+New log file opened at Wed Dec 30 23:30:43 GMT 2015 by 1447@chrischivers-W65-67SR
+Taking next connection to: 38476
+New client attempting to connect on port: 38678-38476
+  Address = /127.0.1.1:38476
+This client on port 38678 has uuid 5a3fd0f0-451a-4ef5-91af-8e3315dff5b2 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-5a3fd0f0-451a-4ef5-91af-8e3315dff5b2
+Taking next connection to: 38476
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 38476
+New client attempting to connect on port: 38720-38476
+  Address = /127.0.1.1:38476
+Handshake exception on socket: 38720
 sbt.impl.ipc.HandshakeException: Unable to perform handshake
 	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
 	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
@@ -17,9 +20,9 @@ Caused by: java.io.EOFException
 	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
 	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
 	... 2 more
-Taking next connection to: 41887
-New client attempting to connect on port: 43630-41887
-  Address = /127.0.1.1:41887
-This client on port 43630 has uuid d41afdea-9b9a-49c9-aebe-607d4abb4cda configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-d41afdea-9b9a-49c9-aebe-607d4abb4cda
-Taking next connection to: 41887
+Taking next connection to: 38476
+New client attempting to connect on port: 38722-38476
+  Address = /127.0.1.1:38476
+This client on port 38722 has uuid 0e790813-92e0-4e07-aa68-91193fb77500 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-0e790813-92e0-4e07-aa68-91193fb77500
+Taking next connection to: 38476

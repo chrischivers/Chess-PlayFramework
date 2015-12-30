@@ -5,6 +5,7 @@ package models
  */
 trait Player {
   val playerName:String
+  override def toString:String = playerName
 }
 
 case class Player1 (playerName:String) extends Player

@@ -11,17 +11,16 @@
             function linkClick(id) {
                 var moveFrom = document.getElementById("MoveFrom");
                 var moveTo = document.getElementById("MoveTo");
-               if (moveFrom.textContent == "") {
+                if (moveFrom.textContent == "") {
                     moveFrom.textContent = id;
-               } else {
-                if (moveTo.textContent == "") {
-                    moveTo.textContent = id;
                 } else {
-                    moveTo.textContent = "";
-                    moveFrom.textContent = id;
+                    if (moveTo.textContent == "") {
+                        moveTo.textContent = id;
+                    } else {
+                        moveTo.textContent = "";
+                        moveFrom.textContent = id;
+                    }
                 }
-               }
-
             }
 
             function setUpXhttp() {
@@ -30,6 +29,8 @@
                   if (xhttp.readyState == 4 && xhttp.status == 200) {
                        if(xhttp.getResponseHeader("RESULT") === "SUCCESS") {
                             document.getElementById("chess_board").innerHTML = xhttp.responseText;
+                            document.getElementById("MoveFrom").textContent = "";
+                            document.getElementById("MoveTo").textContent = "";
                        } else {
                             alert(xhttp.getResponseHeader("RESULT"));
                        }
@@ -40,14 +41,13 @@
 
             function getBoard() {
                 var xhttp = setUpXhttp();
-                xhttp.open("GET", "board/1234", true);
+                xhttp.open("GET", "board/" +  @gameID, true);
                 xhttp.send();
-
             }
 
             function submitMove() {
                var xhttp = setUpXhttp();
-                xhttp.open("GET", "move/1234/" + document.getElementById("MoveFrom").textContent + "/" + document.getElementById("MoveTo").textContent, true);
+                xhttp.open("GET", "move/ " + @gameID + "/" + document.getElementById("MoveFrom").textContent + "/" + document.getElementById("MoveTo").textContent, true);
                 xhttp.send();
             }
 
@@ -55,9 +55,7 @@
 
         </script>
 
-        <div id="chess_board">
-
-        </div>
+        <div id="chess_board"></div>
         <table id="move_list">
             <tr>
                 <td>Move From:</td>
@@ -67,7 +65,6 @@
                 <td>Move To:</td>
                 <td id="MoveTo"></td>
             </tr>
-
         </table>
         <button id="SubmitMove" onclick="submitMove()">Submit Move</button>
     </body>
