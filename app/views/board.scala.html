@@ -19,25 +19,31 @@
         <tr height="70px">
             <td width="25px" align="center">@y</td>
         @for(x <- game.board.state(y).indices) {
-          @if(game.board.state(x)(y) == null) {
-            <td width="70px" align="center">
-              <a href="#" id="@x,@y" onclick="linkClick(this.id);return false;">-</a>
-            </td>
-          }else {
-            <td width="70px" align="center">
-              <a href="#" id="@x,@y" onclick="linkClick(this.id);return false;">@game.board.state(x)(y)</a>
+          @if((y % 2 == 0 && x % 2 == 0) || (y % 2 == 1 && x % 2 == 1)){
+            <td class="whitesquare">
+            } else {
+            <td class="blacksquare">
+            }
+              <a href="#" id="@x,@y" onclick="linkClick(this.id);return false;">
+              @if(game.board.state(x)(y) == null) {
+                  -
+              } else {
+                  @game.board.state(x)(y)
+              }
+
+              </a>
             </td>
           }
-        }
         </tr>
       }
     </table>
 </div>
 
 <div id="off_board">
-    <table border="1" align="center">
-        <tr>
-            Pieces Here
-        </tr>
-    </table>
+
+        <br>Pieces Taken</br>
+        @for(piece <- game.board.piecesTaken) {
+            <br>@piece</br>
+        }
+
 </div>

@@ -6,16 +6,24 @@ import play.api.mvc._
 
 object Application extends Controller {
 
-  private var activeGames:Map[String, Game] = Map()
-
-  val p1 = new Player1("P1")
-  val p2 = new Player2("P2")
-
   def index = Action {
-    val game = new Game(p1,p2)
-    println("adding game ID: " + game.gameID)
-    activeGames += (game.gameID -> game)
-    Ok(views.html.main(game.gameID))
+    Ok(views.html.start())
+  }
+
+  def loadGame(gameId: Option[String]) = Action{
+    if (gameId.isEmpty) {
+      val game = new Game(Game.p1, Game.p2)
+      println("adding game ID: " + game.gameID)
+      Game.activeGames += (game.gameID -> game)
+      Ok(views.html.main(game.gameID))
+    } else {
+      val game = Game.activeGames.get(gameId.get)
+      if (game.isDefined) {
+        Ok(views.html.main(game.get.gameID))
+      } else {
+        Ok("Invalid route")
+      }
+    }
   }
 
   def processMove(gameID:String, from:String, to:String) = Action {
@@ -24,7 +32,7 @@ object Application extends Controller {
     val moveToSplit = to.split(",").map(_.toInt)
     val moveTo = (moveToSplit(0), moveToSplit(1))
 
-    val gameOpt = activeGames.get(gameID.trim)
+    val gameOpt = Game.activeGames.get(gameID.trim)
     if (gameOpt.isDefined) {
       val game = gameOpt.get
       val piece = game.board.state(moveFrom._1)(moveFrom._2)
@@ -49,7 +57,7 @@ object Application extends Controller {
   }
 
   def getBoard(gameID: String) = Action {
-    val gameOpt = activeGames.get(gameID.trim)
+    val gameOpt = Game.activeGames.get(gameID.trim)
     if (gameOpt.isDefined) {
       val game = gameOpt.get
       Ok(views.html.board(game)).withHeaders(

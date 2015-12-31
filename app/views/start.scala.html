@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chess - Play Framework</title>
+    <script>
+        function startNewGame() {
+            window.location.href = "@routes.Application.loadGame()";
+        }
+
+          function joinGame() {
+            var gameID = document.getElementById("joinGameID").value;
+            window.location.href = "/game?id=" + gameID;
+        }
+    </script>
+</head>
+<body>
+    <h1>Chess - Play Framework</h1>
+<table>
+  <tr>
+      <td></td>
+      <td> <button id="new_game_button" onclick="startNewGame()">Start a new Game</button></td>
+  </tr>
+    <tr>
+        <td><input type="text" name="Game to join" id = "joinGameID"></td>
+        <td><button id="join_game_button" onclick="joinGame()">Join an existing game</button></td>
+    </tr>
+</table>
+</body>
+</html>

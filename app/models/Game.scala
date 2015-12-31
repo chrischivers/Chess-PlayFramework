@@ -2,10 +2,18 @@ package models
 
 import java.util.Random
 
+import controllers.Application
+
 
 class Game(p1:Player1, p2:Player2) {
 
-  val gameID = Math.abs(new Random().nextInt()).toString
+  val gameID = {
+    var iD = Math.abs(new Random().nextInt()).toString
+    while (Game.activeGames.contains(iD)) {
+      iD = Math.abs(new Random().nextInt()).toString
+    }
+      iD
+  }
 
   var nextPlayerToGo: Player = p1
   val board: Board = Game.setUpNewBoard(p1,p2)
@@ -62,19 +70,16 @@ class Game(p1:Player1, p2:Player2) {
   }
 
   def updateBoard(from: (Int, Int), to: (Int, Int)) = {
-    val activePiece = board.state(from._1)(from._2)
-    board.state(from._1)(from._2) = null
-    board.state(to._1)(to._2) = activePiece
-    if (activePiece.isInstanceOf[Pawn]) {
-      activePiece.asInstanceOf[Pawn].firstMoveMade = true
-    }
-    assert(activePiece != null)
+    board.updateBoard(from,to)
     nextPlayerToGo = if (nextPlayerToGo == p1) p2 else p1
   }
 }
 
 object Game {
 
+  val p1 = new Player1("P1")
+  val p2 = new Player2("P2")
+  var activeGames:Map[String, Game] = Map()
 
   def setUpNewBoard(p1:Player1, p2:Player2): Board = {
 

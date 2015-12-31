@@ -4,8 +4,9 @@
 
 # Home page
 GET     /                           controllers.Application.index
+GET     /game                       controllers.Application.loadGame(gameId:Option[String] ?= None)
 GET     /move/:gameID/:from/:to     controllers.Application.processMove(gameID:String, from:String, to:String)
-GET     /board/:gameID                 controllers.Application.getBoard(gameID:String)
+GET     /board/:gameID              controllers.Application.getBoard(gameID:String)
 
 
 # Map static resources from the /public folder to the /assets URL path

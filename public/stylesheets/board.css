@@ -2,7 +2,6 @@
     background-color:black;
     color:white;
     text-align:center;
-    padding:5px;
     font-size: larger;
 }
 #subheader {
@@ -12,18 +11,28 @@
     font-size: large;
     font-weight: bold;
 }
+#chess_board {
+
+}
 #board {
     background-color:#eeeeee;
-    height:80%;
-    width:75%;
-    float:left;
-    float:left;
-    padding:5px;
+    float: left;
+}
+td.blacksquare {
+    background-color:#000000;
+    width: 70px;
+    text-align: center;
+}
+td.whitesquare {
+    background-color: #FFFFFF;
+    width: 70px;
+    text-align: center;
 }
 #off_board {
     width:20%;
     float:left;
-    padding:2px;
+    padding:5px;
+    line-height:10px;
 }
 #moves {
     width : 100% ;
