@@ -59,17 +59,24 @@ object Game {
 
 
   def setUpNewBoard(p1:Player1, p2:Player2): Board = {
-    val castle1P1 = new Castle(p1)
-    val castle2P1 = new Castle(p1)
-    val castle1P2 = new Castle(p2)
-    val castle2P2 = new Castle(p2)
+    val rook1P1 = new Rook(p1)
+    val rook2P1 = new Rook(p1)
+    val rook1P2 = new Rook(p2)
+    val rook2P2 = new Rook(p2)
+
+    val kingP1 = new King(p1)
+    val kingP2 = new King(p2)
     //TODO more
 
     val board = new Board
-    board.addPieceToBoard(castle1P1, (0, 7))
-    board.addPieceToBoard(castle2P1, (7, 7))
-    board.addPieceToBoard(castle1P2, (7, 0))
-    board.addPieceToBoard(castle2P2, (0, 0))
+    board.addPieceToBoard(rook1P1, (0, 7))
+    board.addPieceToBoard(rook2P1, (7, 7))
+    board.addPieceToBoard(rook1P2, (7, 0))
+    board.addPieceToBoard(rook2P2, (0, 0))
+
+    board.addPieceToBoard(kingP1, (4, 7))
+    board.addPieceToBoard(kingP2, (4, 0))
+
     board
   }
 }

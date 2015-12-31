@@ -1,16 +1,40 @@
-New log file opened at Wed Dec 30 23:30:43 GMT 2015 by 1447@chrischivers-W65-67SR
-Taking next connection to: 38476
-New client attempting to connect on port: 38678-38476
-  Address = /127.0.1.1:38476
-This client on port 38678 has uuid 5a3fd0f0-451a-4ef5-91af-8e3315dff5b2 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-5a3fd0f0-451a-4ef5-91af-8e3315dff5b2
-Taking next connection to: 38476
+New log file opened at Wed Dec 30 23:37:54 GMT 2015 by 2275@chrischivers-W65-67SR
+Taking next connection to: 40388
+New client attempting to connect on port: 44070-40388
+  Address = /127.0.1.1:40388
+This client on port 44070 has uuid 71090ffb-9fd3-4eca-b9cd-bb250806044c configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-71090ffb-9fd3-4eca-b9cd-bb250806044c
+Taking next connection to: 40388
 Checking to see if clients are empty...
 We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 38476
-New client attempting to connect on port: 38720-38476
-  Address = /127.0.1.1:38476
-Handshake exception on socket: 38720
+Taking next connection to: 40388
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 40388
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 40388
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 40388
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 40388
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 40388
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 40388
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 40388
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 40388
+New client attempting to connect on port: 46106-40388
+  Address = /127.0.1.1:40388
+Handshake exception on socket: 46106
 sbt.impl.ipc.HandshakeException: Unable to perform handshake
 	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
 	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
@@ -20,9 +44,9 @@ Caused by: java.io.EOFException
 	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
 	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
 	... 2 more
-Taking next connection to: 38476
-New client attempting to connect on port: 38722-38476
-  Address = /127.0.1.1:38476
-This client on port 38722 has uuid 0e790813-92e0-4e07-aa68-91193fb77500 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-0e790813-92e0-4e07-aa68-91193fb77500
-Taking next connection to: 38476
+Taking next connection to: 40388
+New client attempting to connect on port: 46114-40388
+  Address = /127.0.1.1:40388
+This client on port 46114 has uuid 383aa586-893a-4a4f-897d-685b3577dfc1 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-383aa586-893a-4a4f-897d-685b3577dfc1
+Taking next connection to: 40388
