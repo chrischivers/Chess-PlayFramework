@@ -1,5 +1,5 @@
-New log file opened at Thu Dec 31 14:55:45 GMT 2015 by 21539@chrischivers-W65-67SR
-jvm 21539@chrischivers-W65-67SR
+New log file opened at Thu Dec 31 16:30:16 GMT 2015 by 27028@chrischivers-W65-67SR
+jvm 27028@chrischivers-W65-67SR
 jvm vmName=Java HotSpot(TM) 64-Bit Server VM vmVendor=Oracle Corporation vmVersion=25.66-b17
 jvm specName=Java Virtual Machine Specification specVendor=Oracle Corporation specVersion=1.8
 jvm arguments: [-Xms256m, -Xmx1024m, -XX:MetaspaceSize=64m, -XX:MaxMetaspaceSize=256m]
@@ -27,7 +27,7 @@ sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.Jvm
   :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
 [Loading] Done in /home/chrischivers/Code/Play/chess-play-framework/project, returning: (chess-play-framework-build)
 Loading project definition from /home/chrischivers/Code/Play/chess-play-framework/project
-Running task... Cancel: sbt.TaskCancellationStrategy$Null$@8c40bb2, check cycles: false
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@796a0f9, check cycles: false
 [info] Updating {file:/home/chrischivers/Code/Play/chess-play-framework/project/}chess-play-framework-build...
 Updating {file:/home/chrischivers/Code/Play/chess-play-framework/project/}chess-play-framework-build...
 Other repositories:
@@ -15774,7 +15774,7 @@ sbt-chain: module revision found in cache: org.fusesource.jansi#jansi;1.4
 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.8-M3!apply-macro.jar
 	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar
 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-:: resolution report :: resolve 4160ms :: artifacts dl 67ms
+:: resolution report :: resolve 6117ms :: artifacts dl 83ms
 	report for default#chess-play-framework-build;0.1-SNAPSHOT compile produced in /home/chrischivers/Code/Play/chess-play-framework/project/target/resolution-cache/reports/default-chess-play-framework-build-compile.xml
 	report for default#chess-play-framework-build;0.1-SNAPSHOT runtime produced in /home/chrischivers/Code/Play/chess-play-framework/project/target/resolution-cache/reports/default-chess-play-framework-build-runtime.xml
 	report for default#chess-play-framework-build;0.1-SNAPSHOT test produced in /home/chrischivers/Code/Play/chess-play-framework/project/target/resolution-cache/reports/default-chess-play-framework-build-test.xml
@@ -15788,7 +15788,7 @@ sbt-chain: module revision found in cache: org.fusesource.jansi#jansi;1.4
 	report for default#chess-play-framework-build;0.1-SNAPSHOT docs produced in /home/chrischivers/Code/Play/chess-play-framework/project/target/resolution-cache/reports/default-chess-play-framework-build-docs.xml
 	report for default#chess-play-framework-build;0.1-SNAPSHOT pom produced in /home/chrischivers/Code/Play/chess-play-framework/project/target/resolution-cache/reports/default-chess-play-framework-build-pom.xml
 	report for default#chess-play-framework-build;0.1-SNAPSHOT scala-tool produced in /home/chrischivers/Code/Play/chess-play-framework/project/target/resolution-cache/reports/default-chess-play-framework-build-scala-tool.xml
-	resolve done (4160ms resolve - 67ms download)
+	resolve done (6117ms resolve - 83ms download)
 [info] Done updating.
 Done updating.
 
@@ -15830,7 +15830,7 @@ Set current project to chess-play-framework (in build file:/home/chrischivers/Co
 > server-handle-next-server-request
 > {file:/home/chrischivers/Code/Play/chess-play-framework/}root/*:playForkConfig
 Evaluating tasks: *:playForkConfig
-Running task... Cancel: sbt.server.ServerTaskCancellation@2a350888, check cycles: false
+Running task... Cancel: sbt.server.ServerTaskCancellation@686ab5a3, check cycles: false
 Read from stdout: Updating {file:/home/chrischivers/Code/Play/chess-play-framework/}root...
 Updating {file:/home/chrischivers/Code/Play/chess-play-framework/}root...
 Other repositories:
@@ -15845,7 +15845,7 @@ resolving dependencies for configuration 'compile'
 == resolving dependencies chess-play-framework#chess-play-framework_2.10;1.0-SNAPSHOT->org.scala-lang#scala-library;2.10.4 [compile->default(compile)]
 Read from stdout: Resolving org.scala-lang#scala-library;2.10.4 ...
 Resolving org.scala-lang#scala-library;2.10.4 ...
-sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@73b93bf
+sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6a60ded6
 sbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.4
 	found org.scala-lang#scala-library;2.10.4 in sbt-chain
 	[2.10.4] org.scala-lang#scala-library;2.10.4
@@ -20839,7 +20839,7 @@ sbt-chain: module revision found in cache: net.contentobjects.jnotify#jnotify;0.
 	[NOT REQUIRED] org.scala-sbt#control;0.13.8-M3!control.jar
 	[NOT REQUIRED] com.typesafe.akka#akka-actor_2.10;2.3.8!akka-actor_2.10.jar
 	[NOT REQUIRED] com.typesafe.akka#akka-testkit_2.10;2.3.8!akka-testkit_2.10.jar
-:: resolution report :: resolve 1787ms :: artifacts dl 57ms
+:: resolution report :: resolve 1657ms :: artifacts dl 62ms
 	report for chess-play-framework#chess-play-framework_2.10;1.0-SNAPSHOT compile produced in /home/chrischivers/Code/Play/chess-play-framework/target/resolution-cache/reports/chess-play-framework-chess-play-framework_2.10-compile.xml
 	report for chess-play-framework#chess-play-framework_2.10;1.0-SNAPSHOT runtime produced in /home/chrischivers/Code/Play/chess-play-framework/target/resolution-cache/reports/chess-play-framework-chess-play-framework_2.10-runtime.xml
 	report for chess-play-framework#chess-play-framework_2.10;1.0-SNAPSHOT test produced in /home/chrischivers/Code/Play/chess-play-framework/target/resolution-cache/reports/chess-play-framework-chess-play-framework_2.10-test.xml
@@ -20854,15 +20854,40 @@ sbt-chain: module revision found in cache: net.contentobjects.jnotify#jnotify;0.
 	report for chess-play-framework#chess-play-framework_2.10;1.0-SNAPSHOT pom produced in /home/chrischivers/Code/Play/chess-play-framework/target/resolution-cache/reports/chess-play-framework-chess-play-framework_2.10-pom.xml
 	report for chess-play-framework#chess-play-framework_2.10;1.0-SNAPSHOT scala-tool produced in /home/chrischivers/Code/Play/chess-play-framework/target/resolution-cache/reports/chess-play-framework-chess-play-framework_2.10-scala-tool.xml
 	report for chess-play-framework#chess-play-framework_2.10;1.0-SNAPSHOT fork-run produced in /home/chrischivers/Code/Play/chess-play-framework/target/resolution-cache/reports/chess-play-framework-chess-play-framework_2.10-fork-run.xml
-	resolve done (1787ms resolve - 57ms download)
+	resolve done (1657ms resolve - 62ms download)
 Read from stdout: Done updating.
 Done updating.
-Total time: 2 s, completed 31-Dec-2015 14:57:53
+Total time: 2 s, completed 31-Dec-2015 16:31:22
 > server-post-command-cleanup
 > server-handle-next-server-request
 > root/playForkNotifyStart http://localhost:9000
 Evaluating tasks: *:playForkNotifyStart
-Running task... Cancel: sbt.server.ServerTaskCancellation@7ab6fb77, check cycles: false
-Total time: 0 s, completed 31-Dec-2015 14:57:53
+Running task... Cancel: sbt.server.ServerTaskCancellation@7dc2ed97, check cycles: false
+Total time: 0 s, completed 31-Dec-2015 16:31:23
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/home/chrischivers/Code/Play/chess-play-framework/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@282eaddc, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/home/chrischivers/Code/Play/chess-play-framework/conf/application.conf,/home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/classes/application.conf)
+	(/home/chrischivers/Code/Play/chess-play-framework/conf/routes,/home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/classes/routes)
+Total time: 0 s, completed 31-Dec-2015 16:31:33
 > server-post-command-cleanup
 > server-handle-next-server-request

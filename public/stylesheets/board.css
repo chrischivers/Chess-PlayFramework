@@ -1,0 +1,32 @@
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+    font-size: larger;
+}
+#subheader {
+    color:black;
+    text-align:center;
+    padding:15px;
+    font-size: large;
+    font-weight: bold;
+}
+#board {
+    background-color:#eeeeee;
+    height:80%;
+    width:75%;
+    float:left;
+    float:left;
+    padding:5px;
+}
+#off_board {
+    width:20%;
+    float:left;
+    padding:2px;
+}
+#moves {
+    width : 100% ;
+    float : left ;
+    padding : 10px ;
+}

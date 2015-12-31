@@ -56,7 +56,7 @@ case class King(var owner:Player) extends Piece {
   override val pieceName: String = "King"
   override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
     if (Math.abs(from._1 - to._1) ==  1 || Math.abs(from._2 - to._2) == 1) {
-      Option(getStraightPath(from,to))
+      Option(Array[(Int,Int)](from,to)) // Path only consists of from and to, no inbetween as King can only move one square
     } else {
       None
     }

@@ -3,6 +3,7 @@
 
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="assets/stylesheets/board.css">
         <title>Chess</title>
     </head>
     <body>
@@ -54,18 +55,21 @@
             getBoard();
 
         </script>
+        <div id="header">Chess - Play Framework</div>
 
         <div id="chess_board"></div>
-        <table id="move_list">
-            <tr>
-                <td>Move From:</td>
-                <td id="MoveFrom"></td>
-            </tr>
-            <tr>
-                <td>Move To:</td>
-                <td id="MoveTo"></td>
-            </tr>
-        </table>
-        <button id="SubmitMove" onclick="submitMove()">Submit Move</button>
+        <div id="moves">
+            <table id="move_list">
+                <tr>
+                    <td>Move From:</td>
+                    <td id="MoveFrom"></td>
+                </tr>
+                <tr>
+                    <td>Move To:</td>
+                    <td id="MoveTo"></td>
+                </tr>
+            </table>
+            <button id="SubmitMove" onclick="submitMove()">Submit Move</button>
+        </div>
     </body>
 </html>
