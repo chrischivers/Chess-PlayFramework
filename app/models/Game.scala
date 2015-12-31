@@ -63,6 +63,20 @@ object Game {
 
     val kingP1 = new King(p1)
     val kingP2 = new King(p2)
+
+    val queenP1 = new Queen(p1)
+    val queenP2 = new Queen(p2)
+
+    val bishop1P1 = new Bishop(p1)
+    val bishop2P1 = new Bishop(p1)
+    val bishop1P2 = new Bishop(p2)
+    val bishop2P2 = new Bishop(p2)
+
+    val knight1P1 = new Knight(p1)
+    val knight2P1 = new Knight(p1)
+    val knight1P2 = new Knight(p2)
+    val knight2P2 = new Knight(p2)
+
     //TODO more
 
     val board = new Board
@@ -74,6 +88,18 @@ object Game {
     board.addPieceToBoard(kingP1, (4, 7))
     board.addPieceToBoard(kingP2, (4, 0))
 
+    board.addPieceToBoard(queenP1, (3,7))
+    board.addPieceToBoard(queenP2, (3,0))
+
+    board.addPieceToBoard(bishop1P1, (2,7))
+    board.addPieceToBoard(bishop2P1, (5,7))
+    board.addPieceToBoard(bishop1P2, (2,0))
+    board.addPieceToBoard(bishop2P2, (5,0))
+
+    board.addPieceToBoard(knight1P1, (1,7))
+    board.addPieceToBoard(knight2P1, (6,7))
+    board.addPieceToBoard(knight1P2, (1,0))
+    board.addPieceToBoard(knight2P2, (6,0))
     board
   }
 }

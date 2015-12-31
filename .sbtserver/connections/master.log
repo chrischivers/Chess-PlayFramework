@@ -1,7 +1,7 @@
-New log file opened at Thu Dec 31 00:52:03 GMT 2015 by 6722@chrischivers-W65-67SR
-Taking next connection to: 45802
-New client attempting to connect on port: 59588-45802
-  Address = /127.0.1.1:45802
-This client on port 59588 has uuid a8516d33-a6ef-4de6-b0f3-2451b6458d23 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-a8516d33-a6ef-4de6-b0f3-2451b6458d23
-Taking next connection to: 45802
+New log file opened at Thu Dec 31 13:25:22 GMT 2015 by 15983@chrischivers-W65-67SR
+Taking next connection to: 40038
+New client attempting to connect on port: 40342-40038
+  Address = /127.0.1.1:40038
+This client on port 40342 has uuid 320ec608-99fd-4353-a8d1-a66d1c47668b configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-320ec608-99fd-4353-a8d1-a66d1c47668b
+Taking next connection to: 40038

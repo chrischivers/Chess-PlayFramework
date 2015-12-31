@@ -6,7 +6,6 @@ package models
 trait Piece {
 
   val pieceName:String
-  val canJump:Boolean
   var owner:Player
   var taken = false
 
@@ -26,11 +25,23 @@ trait Piece {
     array
   }
 
+  protected def getDiagonalPath(from: (Int, Int), to: (Int, Int)):Array[(Int, Int)] = {
+    var array:Array[(Int,Int)] = Array()
+    val xLoopDirection = if (from._1 - to._1 < 0) 1 else -1
+    val yLoopDirection = if (from._2 - to._2 < 0) 1 else -1
+    val numberOfMoves = Math.abs(from._1 - to._1)
+    for (i <- 0 until numberOfMoves) {
+        val x = from._1 + (xLoopDirection * i)
+        val y = from._2 + (yLoopDirection * i)
+        array = array :+ (x,y)
+    }
+    array
+  }
+
 }
 
 case class Rook(var owner:Player) extends Piece {
   override val pieceName: String = "Rook"
-  override val canJump = false
 
   override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
     if (from._1 == to._1 ^ from._2 == to._2) {
@@ -43,7 +54,6 @@ case class Rook(var owner:Player) extends Piece {
 
 case class King(var owner:Player) extends Piece {
   override val pieceName: String = "King"
-  override val canJump = false
   override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
     if (Math.abs(from._1 - to._1) ==  1 || Math.abs(from._2 - to._2) == 1) {
       Option(getStraightPath(from,to))
@@ -55,9 +65,40 @@ case class King(var owner:Player) extends Piece {
 
 case class Queen(var owner:Player) extends Piece {
   override val pieceName: String = "Queen"
-  override val canJump = false
 
-  override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = ???
+  override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
+    if (Math.abs(from._1 - to._1) == Math.abs(from._2 - to._2)) {
+      Option(getDiagonalPath(from, to))
+    } else if (from._1 == to._1 ^ from._2 == to._2){
+      Option(getStraightPath(from,to))
+    } else {
+      None
+    }
+  }
+}
+
+case class Bishop(var owner:Player) extends Piece {
+  override val pieceName: String = "Bishop"
+
+  override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
+    if (Math.abs(from._1 - to._1) == Math.abs(from._2 - to._2)) {
+      Option(getDiagonalPath(from, to))
+    } else {
+      None
+    }
+  }
+}
+
+case class Knight(var owner:Player) extends Piece {
+  override val pieceName: String = "Knight"
+
+  override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
+    if ((Math.abs(from._1 - to._1) == 2 && Math.abs(from._2 - to._2) == 1) || (Math.abs(from._1 - to._1) == 1 && Math.abs(from._2 - to._2) == 2)){
+      Option(Array[(Int,Int)](from,to)) // Path only consists of from and to, no inbetween as Knight can jump
+    } else {
+      None
+    }
+  }
 }
 
 

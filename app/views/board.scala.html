@@ -6,20 +6,20 @@
     <tr height="25px">
         <td/>
         @for(i <- 0 to 7) {
-            <td width ="100px" align="center">@i</td>
+            <td width ="70px" align="center">@i</td>
         }
         </tr>
 
   @for(y <- game.board.state.indices) {
-    <tr height="100px">
+    <tr height="70px">
         <td width="25px" align="center">@y</td>
     @for(x <- game.board.state(y).indices) {
       @if(game.board.state(x)(y) == null) {
-        <td width="100px" align="center">
+        <td width="70px" align="center">
           <a href="#" id="@x,@y" onclick="linkClick(this.id);return false;">-</a>
         </td>
       }else {
-        <td width="100px" align="center">
+        <td width="70px" align="center">
           <a href="#" id="@x,@y" onclick="linkClick(this.id);return false;">@game.board.state(x)(y)</a>
         </td>
       }
