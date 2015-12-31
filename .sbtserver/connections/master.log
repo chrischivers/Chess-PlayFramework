@@ -1,52 +1,7 @@
-New log file opened at Wed Dec 30 23:37:54 GMT 2015 by 2275@chrischivers-W65-67SR
-Taking next connection to: 40388
-New client attempting to connect on port: 44070-40388
-  Address = /127.0.1.1:40388
-This client on port 44070 has uuid 71090ffb-9fd3-4eca-b9cd-bb250806044c configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-71090ffb-9fd3-4eca-b9cd-bb250806044c
-Taking next connection to: 40388
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 40388
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 40388
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 40388
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 40388
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 40388
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 40388
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 40388
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 40388
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 40388
-New client attempting to connect on port: 46106-40388
-  Address = /127.0.1.1:40388
-Handshake exception on socket: 46106
-sbt.impl.ipc.HandshakeException: Unable to perform handshake
-	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
-	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
-	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
-Caused by: java.io.EOFException
-	at java.io.DataInputStream.readInt(DataInputStream.java:392)
-	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
-	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
-	... 2 more
-Taking next connection to: 40388
-New client attempting to connect on port: 46114-40388
-  Address = /127.0.1.1:40388
-This client on port 46114 has uuid 383aa586-893a-4a4f-897d-685b3577dfc1 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-383aa586-893a-4a4f-897d-685b3577dfc1
-Taking next connection to: 40388
+New log file opened at Thu Dec 31 00:52:03 GMT 2015 by 6722@chrischivers-W65-67SR
+Taking next connection to: 45802
+New client attempting to connect on port: 59588-45802
+  Address = /127.0.1.1:45802
+This client on port 59588 has uuid a8516d33-a6ef-4de6-b0f3-2451b6458d23 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-a8516d33-a6ef-4de6-b0f3-2451b6458d23
+Taking next connection to: 45802

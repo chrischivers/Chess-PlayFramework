@@ -14,25 +14,22 @@ class Game(p1:Player1, p2:Player2) {
     var valid = false
     val piece = board.state(from._1)(from._2)
     if (piece != null) {
-      if (isPieceOwnedByPlayer(piece) && piece.canPiecePerformMove(from, to) && isPathClear(from, to) && isLandingPositionValid(to)) {
-        //TODO make allowances for pieces that can 'jump'
-        valid = true
+      if (isPieceOwnedByPlayer(piece) && piece.getPathOfMovement(from,to).isDefined) {
+        if (isPathClear(piece.getPathOfMovement(from,to).get) && isLandingPositionValid(to)) {
+          valid = true
+        }
       }
-    } else valid = false
+    }
     valid
   }
 
   def isPieceOwnedByPlayer(piece: Piece):Boolean = piece.owner == nextPlayerToGo
 
-  def isPathClear(from: (Int, Int), to: (Int, Int)): Boolean = {
+  def isPathClear(path:Array[(Int,Int)]): Boolean = {
     var clear = true
-    val xLoopDirection = if (from._1 - to._1 < 0) 1 else -1
-    val yLoopDirection = if (from._2 - to._2 < 0) 1 else -1
-    for (x <- from._1 to to._1 by xLoopDirection) {
-      for (y <- from._2 to to._2 by yLoopDirection) {
-        println("Checking square: x=" + x + ", y=" + y)
-        if (board.state(x)(y) != null && (x, y) != from && (x, y) != to) clear = false
-      }
+    for (i <- 1 until path.length - 1) { //Does not check the first or last position on the path
+        println("Checking square: x=" + path(i)._1 + ", y=" + path(i)._2)
+        if (board.state(path(i)._1)(path(i)._2) != null) clear = false
     }
     clear
   }
