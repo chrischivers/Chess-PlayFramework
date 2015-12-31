@@ -27,7 +27,7 @@ object Application extends Controller {
     val gameOpt = activeGames.get(gameID.trim)
     if (gameOpt.isDefined) {
       val game = gameOpt.get
-      println("Piece is: " + game.board.state(moveFrom._1)(moveFrom._2))
+      val piece = game.board.state(moveFrom._1)(moveFrom._2)
       if (game.isMoveValid(moveFrom,moveTo)) {
         println("Move valid")
         game.updateBoard(moveFrom,moveTo)

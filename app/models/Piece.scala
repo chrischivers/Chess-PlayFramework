@@ -30,7 +30,7 @@ trait Piece {
     val xLoopDirection = if (from._1 - to._1 < 0) 1 else -1
     val yLoopDirection = if (from._2 - to._2 < 0) 1 else -1
     val numberOfMoves = Math.abs(from._1 - to._1)
-    for (i <- 0 until numberOfMoves) {
+    for (i <- 0 to numberOfMoves) {
         val x = from._1 + (xLoopDirection * i)
         val y = from._2 + (yLoopDirection * i)
         array = array :+ (x,y)
@@ -95,6 +95,21 @@ case class Knight(var owner:Player) extends Piece {
   override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
     if ((Math.abs(from._1 - to._1) == 2 && Math.abs(from._2 - to._2) == 1) || (Math.abs(from._1 - to._1) == 1 && Math.abs(from._2 - to._2) == 2)){
       Option(Array[(Int,Int)](from,to)) // Path only consists of from and to, no inbetween as Knight can jump
+    } else {
+      None
+    }
+  }
+}
+
+case class Pawn(var owner:Player) extends Piece {
+  override val pieceName: String = "Pawn"
+  var firstMoveMade = false
+
+  override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
+    if (to._2 - from._2 == owner.yDirection || (!firstMoveMade && to._2 - from._2 == (owner.yDirection * 2))) {
+      if (from._1 == to._1) Option(getStraightPath(from,to))
+      else if (Math.abs(from._1 - to._1) == 1) Option(getDiagonalPath(from,to))
+      else None
     } else {
       None
     }
