@@ -52,43 +52,27 @@
                 xhttp.send();
             }
 
+            setUpWebSocket();
             getBoard();
 
-             function WebSocketTest()
-         {
-            if ("WebSocket" in window)
-            {
-               alert("WebSocket is supported by your Browser!");
+            function setUpWebSocket() {
+                if ("WebSocket" in window) {
+                   var ws = new WebSocket("ws://localhost:9000/socket/" + @gameID);
 
-               // Let us open a web socket
-               var ws = new WebSocket("ws://localhost:9000/socket");
+                   ws.onmessage = function (evt) {
+                      var received_msg = evt.data;
+                      if (received_msg == "UPDATE_BOARD") {
+                        getBoard();
+                      }
+                   };
 
-               ws.onopen = function()
-               {
-                  // Web Socket is connected, send data using send()
-                  ws.send("Message to send");
-                  alert("Message is sent...");
-               };
-
-               ws.onmessage = function (evt)
-               {
-                  var received_msg = evt.data;
-                  alert("Message is received..." + received_msg);
-               };
-
-               ws.onclose = function()
-               {
-                  // websocket is closed.
-                  alert("Connection is closed...");
-               };
+                   ws.onclose = function() {
+                      alert("Error. Connection is closed.");
+                   };
+                } else {
+                   alert("WebSocket NOT supported by your Browser!");
+                }
             }
-
-            else
-            {
-               // The browser doesn't support WebSocket
-               alert("WebSocket NOT supported by your Browser!");
-            }
-         }
 
         </script>
         <div id="header">Chess - Play Framework (Game ID: @gameID)</div>
@@ -106,10 +90,6 @@
                 </tr>
             </table>
             <button id="SubmitMove" onclick="submitMove()">Submit Move</button>
-        </div>
-
-        <div id="sse">
-            <a href="javascript:WebSocketTest()">Run WebSocket</a>
         </div>
     </body>
 </html>

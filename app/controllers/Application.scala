@@ -1,6 +1,7 @@
 package controllers
 
-import models.{MyWebSocketActor, Player2, Player1, Game}
+import akka.actor.{Actor, Props, ActorRef}
+import models.{Board, Player2, Player1, Game}
 import play.api.mvc._
 import play.api.Play.current
 
@@ -11,9 +12,11 @@ object Application extends Controller {
     Ok(views.html.start())
   }
 
-  def socket = WebSocket.acceptWithActor[String, String] { request => out =>
-  MyWebSocketActor.props(out)
-}
+  def openSocket(gameId: String)  = {
+        WebSocket.acceptWithActor[String, String] { request => out =>
+        WebSocketActor.props(Game.activeGames.get(gameId).get, out)
+    }
+  }
 
   def loadGame(gameId: Option[String]) = Action{
     if (gameId.isEmpty) {
@@ -72,5 +75,27 @@ object Application extends Controller {
     } else {
       NotImplemented
     }
+  }
+}
+
+
+object WebSocketActor {
+  def props(game: Game, out: ActorRef) = {
+      Props(new WebSocketActor(game, out))
+
+  }
+}
+
+class WebSocketActor(game: Game, out: ActorRef) extends Actor {
+
+  game.addSocket(this)
+
+  def boardUpdated() = {
+    out ! "UPDATE_BOARD"
+  }
+  def receive = {
+    case msg: String =>
+      //TODO remove?
+      out ! ("I received your message: " + msg)
   }
 }
