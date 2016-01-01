@@ -2,7 +2,9 @@ package models
 
 import java.util.Random
 
-import controllers.Application
+import akka.actor.{Actor, Props, ActorRef}
+import play.api.mvc.WebSocket
+
 
 
 class Game(p1:Player1, p2:Player2) {
@@ -14,6 +16,7 @@ class Game(p1:Player1, p2:Player2) {
     }
       iD
   }
+
 
   var nextPlayerToGo: Player = p1
   val board: Board = Game.setUpNewBoard(p1,p2)
@@ -73,6 +76,8 @@ class Game(p1:Player1, p2:Player2) {
     board.updateBoard(from,to)
     nextPlayerToGo = if (nextPlayerToGo == p1) p2 else p1
   }
+
+
 }
 
 object Game {
@@ -165,5 +170,19 @@ object Game {
     board.addPieceToBoard(pawn8P2, (7,1))
 
     board
+  }
+}
+
+object MyWebSocketActor {
+  def props(out: ActorRef) = {
+    println("In props out")
+    Props(new MyWebSocketActor(out))
+  }
+}
+
+class MyWebSocketActor(out: ActorRef) extends Actor {
+  def receive = {
+    case msg: String =>
+      out ! ("I received your message: " + msg)
   }
 }

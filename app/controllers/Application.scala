@@ -1,7 +1,8 @@
 package controllers
 
-import models.{Player2, Player1, Game}
+import models.{MyWebSocketActor, Player2, Player1, Game}
 import play.api.mvc._
+import play.api.Play.current
 
 
 object Application extends Controller {
@@ -10,8 +11,13 @@ object Application extends Controller {
     Ok(views.html.start())
   }
 
+  def socket = WebSocket.acceptWithActor[String, String] { request => out =>
+  MyWebSocketActor.props(out)
+}
+
   def loadGame(gameId: Option[String]) = Action{
     if (gameId.isEmpty) {
+      println("Is empty")
       val game = new Game(Game.p1, Game.p2)
       println("adding game ID: " + game.gameID)
       Game.activeGames += (game.gameID -> game)
@@ -19,6 +25,7 @@ object Application extends Controller {
     } else {
       val game = Game.activeGames.get(gameId.get)
       if (game.isDefined) {
+        println("is defined")
         Ok(views.html.main(game.get.gameID))
       } else {
         Ok("Invalid route")

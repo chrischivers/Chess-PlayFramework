@@ -1,13 +1,13 @@
-New log file opened at Thu Dec 31 18:46:34 GMT 2015 by 7617@chrischivers-W65-67SR
-Taking next connection to: 33005
-New client attempting to connect on port: 38782-33005
-  Address = /127.0.1.1:33005
-This client on port 38782 has uuid 3dafd447-32ab-4b7d-bb5e-79e24f1bff9f configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-3dafd447-32ab-4b7d-bb5e-79e24f1bff9f
-Taking next connection to: 33005
-New client attempting to connect on port: 38800-33005
-  Address = /127.0.1.1:33005
-Handshake exception on socket: 38800
+New log file opened at Fri Jan 01 11:00:58 GMT 2016 by 16407@chrischivers-W65-67SR
+Taking next connection to: 34542
+New client attempting to connect on port: 38746-34542
+  Address = /127.0.1.1:34542
+This client on port 38746 has uuid 9768ce88-05be-4a8d-871e-3ccdb618deba configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-9768ce88-05be-4a8d-871e-3ccdb618deba
+Taking next connection to: 34542
+New client attempting to connect on port: 38762-34542
+  Address = /127.0.1.1:34542
+Handshake exception on socket: 38762
 sbt.impl.ipc.HandshakeException: Unable to perform handshake
 	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
 	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
@@ -17,9 +17,9 @@ Caused by: java.io.EOFException
 	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
 	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
 	... 2 more
-Taking next connection to: 33005
-New client attempting to connect on port: 38802-33005
-  Address = /127.0.1.1:33005
-This client on port 38802 has uuid eabc7d26-27c4-4b1a-9526-5fa9041481f3 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-eabc7d26-27c4-4b1a-9526-5fa9041481f3
-Taking next connection to: 33005
+Taking next connection to: 34542
+New client attempting to connect on port: 38764-34542
+  Address = /127.0.1.1:34542
+This client on port 38764 has uuid 919bed10-ff67-4313-bc93-89876d1bfb9d configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-919bed10-ff67-4313-bc93-89876d1bfb9d
+Taking next connection to: 34542

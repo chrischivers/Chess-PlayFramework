@@ -5,12 +5,12 @@
   <title>Chess - Play Framework</title>
     <script>
         function startNewGame() {
-            window.location.href = "@routes.Application.loadGame()";
+            window.location.href = "/game";
         }
 
           function joinGame() {
             var gameID = document.getElementById("joinGameID").value;
-            window.location.href = "/game?id=" + gameID;
+            window.location.href = "/game?gameId=" + gameID;
         }
     </script>
 </head>
