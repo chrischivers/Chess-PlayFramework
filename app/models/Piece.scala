@@ -1,5 +1,7 @@
 package models
 
+import controllers.Assets
+
 /**
  * Created by chrischivers on 29/12/15.
  */
@@ -8,6 +10,8 @@ trait Piece {
   val pieceName:String
   var owner:Player
   var taken = false
+  val imageFileSuffix:String
+  def getImageFileName = imageFileSuffix + "-" + owner.playerRef + ".png"
 
   override def toString:String = pieceName + " (" + owner +")"
 
@@ -42,6 +46,7 @@ trait Piece {
 
 case class Rook(var owner:Player) extends Piece {
   override val pieceName: String = "Rook"
+  override val imageFileSuffix: String = "rook"
 
   override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
     if (from._1 == to._1 ^ from._2 == to._2) {
@@ -50,10 +55,13 @@ case class Rook(var owner:Player) extends Piece {
       None
     }
   }
+
+
 }
 
 case class King(var owner:Player) extends Piece {
   override val pieceName: String = "King"
+  override val imageFileSuffix: String = "king"
   override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
     if (Math.abs(from._1 - to._1) ==  1 || Math.abs(from._2 - to._2) == 1) {
       Option(Array[(Int,Int)](from,to)) // Path only consists of from and to, no inbetween as King can only move one square
@@ -65,6 +73,7 @@ case class King(var owner:Player) extends Piece {
 
 case class Queen(var owner:Player) extends Piece {
   override val pieceName: String = "Queen"
+  override val imageFileSuffix: String = "queen"
 
   override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
     if (Math.abs(from._1 - to._1) == Math.abs(from._2 - to._2)) {
@@ -79,6 +88,7 @@ case class Queen(var owner:Player) extends Piece {
 
 case class Bishop(var owner:Player) extends Piece {
   override val pieceName: String = "Bishop"
+  override val imageFileSuffix: String = "bishop"
 
   override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
     if (Math.abs(from._1 - to._1) == Math.abs(from._2 - to._2)) {
@@ -91,6 +101,7 @@ case class Bishop(var owner:Player) extends Piece {
 
 case class Knight(var owner:Player) extends Piece {
   override val pieceName: String = "Knight"
+  override val imageFileSuffix: String = "knight"
 
   override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
     if ((Math.abs(from._1 - to._1) == 2 && Math.abs(from._2 - to._2) == 1) || (Math.abs(from._1 - to._1) == 1 && Math.abs(from._2 - to._2) == 2)){
@@ -103,6 +114,7 @@ case class Knight(var owner:Player) extends Piece {
 
 case class Pawn(var owner:Player) extends Piece {
   override val pieceName: String = "Pawn"
+  override val imageFileSuffix: String = "pawn"
   var firstMoveMade = false
 
   override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {

@@ -6,18 +6,18 @@
 
 
 <div id="board">
-    <table border="1" align="center">
+    <table class = "board">
 
-        <tr height="25px">
+        <tr class = "column-labels">
             <td/>
             @for(i <- 0 to 7) {
-                <td width ="70px" align="center">@i</td>
+                <td class = "column-labels">@i</td>
             }
             </tr>
 
       @for(y <- game.board.state.indices) {
-        <tr height="70px">
-            <td width="25px" align="center">@y</td>
+        <tr class = "row-labels">
+            <td class = "row-labels">@y</td>
         @for(x <- game.board.state(y).indices) {
           @if((y % 2 == 0 && x % 2 == 0) || (y % 2 == 1 && x % 2 == 1)){
             <td class="whitesquare">
@@ -28,7 +28,7 @@
               @if(game.board.state(x)(y) == null) {
                   -
               } else {
-                  @game.board.state(x)(y)
+                  <image src="assets/images/@game.board.state(x)(y).getImageFileName"></image>
               }
 
               </a>

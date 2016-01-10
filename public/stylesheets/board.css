@@ -18,6 +18,10 @@
     background-color:#eeeeee;
     float: left;
 }
+table.board {
+    border-width: 1px;
+    align: "center";
+}
 td.blacksquare {
     background-color:#000000;
     width: 70px;
@@ -26,6 +30,24 @@ td.blacksquare {
 td.whitesquare {
     background-color: #FFFFFF;
     width: 70px;
+    text-align: center;
+}
+
+tr.column-labels {
+    height: 25px;
+}
+
+td.column-labels {
+    width: 70px;
+    text-align: center;
+}
+
+tr.row-labels {
+    height: 70px;
+}
+
+td.row-labels {
+    width: 25px;
     text-align: center;
 }
 #off_board {
