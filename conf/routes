@@ -5,7 +5,7 @@
 # Home page
 GET     /                           controllers.Application.index
 GET     /socket/:gameID             controllers.Application.openSocket(gameID:String)
-GET     /game                       controllers.Application.loadGame(gameId:Option[String])
+GET     /game/:gameID               controllers.Application.loadGame(gameID:String)
 GET     /move/:gameID/:from/:to     controllers.Application.processMove(gameID:String, from:String, to:String)
 GET     /board/:gameID              controllers.Application.getBoard(gameID:String)
 
