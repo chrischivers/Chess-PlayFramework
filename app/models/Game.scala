@@ -21,7 +21,7 @@ class Game(p1:Player1, p2:Player2) {
     while (Game.activeGames.contains(iD)) {
       iD = Math.abs(new Random().nextInt()).toString
     }
-      iD
+    iD
   }
 
 

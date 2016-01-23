@@ -23,11 +23,13 @@ table.board {
     align: "center";
 }
 td.blacksquare {
+    overflow: hidden;
     background-color:#000000;
     width: 70px;
     text-align: center;
 }
 td.whitesquare {
+    overflow: hidden;
     background-color: #FFFFFF;
     width: 70px;
     text-align: center;
@@ -60,4 +62,11 @@ td.row-labels {
     width : 100% ;
     float : left ;
     padding : 10px ;
+}
+
+
+td a {
+    display: block;
+    margin: -10em;
+    padding: 10em;
 }

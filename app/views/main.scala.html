@@ -3,7 +3,7 @@
 
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="assets/stylesheets/board.css">
+        <link rel="stylesheet" type="text/css" href="../assets/stylesheets/board.css">
         <title>Chess</title>
     </head>
     <body>
@@ -42,18 +42,21 @@
 
             function getBoard() {
                 var xhttp = setUpXhttp();
-                xhttp.open("GET", "board/" +  @gameID, true);
+                xhttp.open("GET", "../board/" +  @gameID, true);
                 xhttp.send();
+
             }
+
 
             function submitMove() {
                var xhttp = setUpXhttp();
-                xhttp.open("GET", "move/ " + @gameID + "/" + document.getElementById("MoveFrom").textContent + "/" + document.getElementById("MoveTo").textContent, true);
+                xhttp.open("GET", "../move/ " + @gameID + "/" + document.getElementById("MoveFrom").textContent + "/" + document.getElementById("MoveTo").textContent, true);
                 xhttp.send();
             }
 
             setUpWebSocket();
             getBoard();
+
 
             function setUpWebSocket() {
                 if ("WebSocket" in window) {

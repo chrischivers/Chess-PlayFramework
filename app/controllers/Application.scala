@@ -1,5 +1,7 @@
 package controllers
 
+import java.util.Random
+
 import akka.actor.{Actor, Props, ActorRef}
 import models.{Board, Player2, Player1, Game}
 import play.api.mvc._
@@ -18,21 +20,19 @@ object Application extends Controller {
     }
   }
 
-  def loadGame(gameId: Option[String]) = Action{
-    if (gameId.isEmpty) {
-      println("Is empty")
+  def setUpNewGame:String = {
       val game = new Game(Game.p1, Game.p2)
-      println("adding game ID: " + game.gameID)
       Game.activeGames += (game.gameID -> game)
-      Ok(views.html.main(game.gameID))
+    println("Game set up with ID: " + game.gameID)
+      game.gameID
+  }
+
+
+  def loadGame(gameId:String) = Action{
+    if (Game.activeGames.contains(gameId)) {
+      Ok(views.html.main(gameId))
     } else {
-      val game = Game.activeGames.get(gameId.get)
-      if (game.isDefined) {
-        println("is defined")
-        Ok(views.html.main(game.get.gameID))
-      } else {
-        Ok("Invalid route")
-      }
+      Ok("Error Invalid Game ID")
     }
   }
 
@@ -73,7 +73,7 @@ object Application extends Controller {
       Ok(views.html.board(game)).withHeaders(
         ("RESULT", "SUCCESS"))
     } else {
-      NotImplemented
+      Ok("Error: Cannot find sboard")
     }
   }
 }
