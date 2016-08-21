@@ -50,8 +50,10 @@
 
             function submitMove() {
                var xhttp = setUpXhttp();
-                xhttp.open("GET", "../move/ " + @gameID + "/" + document.getElementById("MoveFrom").textContent + "/" + document.getElementById("MoveTo").textContent, true);
-                xhttp.send();
+
+                xhttp.open("POST", "/game/" + @gameID + "/move", true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send("move-from=" + document.getElementById("MoveFrom").textContent + "&move-to=" + document.getElementById("MoveTo").textContent);
             }
 
             setUpWebSocket();

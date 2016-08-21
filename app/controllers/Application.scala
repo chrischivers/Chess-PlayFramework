@@ -7,6 +7,8 @@ import models.{Board, Player2, Player1, Game}
 import play.api.mvc._
 import play.api.Play.current
 
+import scala.collection.mutable.ArrayBuffer
+
 
 object Application extends Controller {
 
@@ -36,11 +38,17 @@ object Application extends Controller {
     }
   }
 
-  def processMove(gameID:String, from:String, to:String) = Action {
-    val moveFromSplit = from.split(",").map(_.toInt)
-    val moveFrom = (moveFromSplit(0), moveFromSplit(1))
-    val moveToSplit = to.split(",").map(_.toInt)
-    val moveTo = (moveToSplit(0), moveToSplit(1))
+  def processMove(gameID:String) = Action {
+      request =>
+
+      val moveFrom = request.body.asFormUrlEncoded.get("move-from") match {
+        case a:ArrayBuffer[String] =>  (a.head.split(",")(0).toInt, a.head.split(",")(1).toInt)
+        case _ => throw new IllegalArgumentException
+      }
+        val moveTo = request.body.asFormUrlEncoded.get("move-to") match {
+          case a:ArrayBuffer[String] =>  (a.head.split(",")(0).toInt, a.head.split(",")(1).toInt)
+          case _ => throw new IllegalArgumentException
+        }
 
     val gameOpt = Game.activeGames.get(gameID.trim)
     if (gameOpt.isDefined) {

@@ -11,15 +11,17 @@
     font-size: large;
     font-weight: bold;
 }
-#chess_board {
-
+#board_table {
+    border-width: 1px;
+    border-color: black;
 }
 #board {
-    background-color:#eeeeee;
+   background-color:#eeeeee;
     float: left;
 }
-table.board {
+table.board_table {
     border-width: 1px;
+    border-color: black;
     align: "center";
 }
 td.blacksquare {
@@ -70,3 +72,4 @@ td a {
     margin: -10em;
     padding: 10em;
 }
+

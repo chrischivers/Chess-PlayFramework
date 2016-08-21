@@ -22,8 +22,9 @@ class Board {
     }
     state(to._1)(to._2) = activePiece
 
-    if (activePiece.isInstanceOf[Pawn]) {
-      activePiece.asInstanceOf[Pawn].firstMoveMade = true
+    activePiece match {
+      case pawn: Pawn =>
+        pawn.firstMoveMade = true
     }
     assert(activePiece != null)
       }

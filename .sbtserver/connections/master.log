@@ -1,13 +1,19 @@
-New log file opened at Sat Jan 23 16:50:58 GMT 2016 by 20095@chrischivers-W65-67SR
-Taking next connection to: 36190
-New client attempting to connect on port: 49318-36190
-  Address = /127.0.1.1:36190
-This client on port 49318 has uuid e3b0ddbe-af02-4cc4-b854-b251d57c9664 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-e3b0ddbe-af02-4cc4-b854-b251d57c9664
-Taking next connection to: 36190
-New client attempting to connect on port: 49430-36190
-  Address = /127.0.1.1:36190
-Handshake exception on socket: 49430
+New log file opened at Sun Aug 21 21:33:49 BST 2016 by 1536@chrischivers-W65-67SR
+Taking next connection to: 41157
+New client attempting to connect on port: 52284-41157
+  Address = /127.0.1.1:41157
+This client on port 52284 has uuid 39519fb1-d72d-445b-bbed-9ccf81745229 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-39519fb1-d72d-445b-bbed-9ccf81745229
+Taking next connection to: 41157
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 41157
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 41157
+New client attempting to connect on port: 52528-41157
+  Address = /127.0.1.1:41157
+Handshake exception on socket: 52528
 sbt.impl.ipc.HandshakeException: Unable to perform handshake
 	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
 	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
@@ -17,9 +23,9 @@ Caused by: java.io.EOFException
 	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
 	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
 	... 2 more
-Taking next connection to: 36190
-New client attempting to connect on port: 49432-36190
-  Address = /127.0.1.1:36190
-This client on port 49432 has uuid 3f768292-cbfe-419e-9088-47848780386a configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-3f768292-cbfe-419e-9088-47848780386a
-Taking next connection to: 36190
+Taking next connection to: 41157
+New client attempting to connect on port: 52530-41157
+  Address = /127.0.1.1:41157
+This client on port 52530 has uuid 406aa71d-e116-44e2-b64d-39d97174698d configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-406aa71d-e116-44e2-b64d-39d97174698d
+Taking next connection to: 41157
