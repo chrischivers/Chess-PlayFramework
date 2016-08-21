@@ -42,7 +42,7 @@
 
             function getBoard() {
                 var xhttp = setUpXhttp();
-                xhttp.open("GET", "../board/" +  @gameID, true);
+                xhttp.open("GET", "/games/" +  @gameID + "/board", true);
                 xhttp.send();
 
             }
@@ -51,7 +51,7 @@
             function submitMove() {
                var xhttp = setUpXhttp();
 
-                xhttp.open("POST", "/game/" + @gameID + "/move", true);
+                xhttp.open("POST", "/games/" + @gameID + "/move", true);
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 xhttp.send("move-from=" + document.getElementById("MoveFrom").textContent + "&move-to=" + document.getElementById("MoveTo").textContent);
             }
@@ -62,7 +62,7 @@
 
             function setUpWebSocket() {
                 if ("WebSocket" in window) {
-                   var ws = new WebSocket("ws://localhost:9000/socket/" + @gameID);
+                   var ws = new WebSocket("ws://localhost:9000/games/" + @gameID + "/socket");
 
                    ws.onmessage = function (evt) {
                       var received_msg = evt.data;
