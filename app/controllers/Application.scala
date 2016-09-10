@@ -22,11 +22,10 @@ object Application extends Controller {
     }
   }
 
-  def setUpNewGame:String = {
+  def setUpNewGame() = Action {
       val game = new Game(Game.p1, Game.p2)
       Game.activeGames += (game.gameID -> game)
-    println("Game set up with ID: " + game.gameID)
-      game.gameID
+      Redirect("/games/" + game.gameID)
   }
 
 

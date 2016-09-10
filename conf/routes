@@ -4,6 +4,7 @@
 
 # Home page
 GET     /                           controllers.Application.index
+GET     /set-up-new-game            controllers.Application.setUpNewGame()
 GET     /games/:gameID/socket        controllers.Application.openSocket(gameID:String)
 GET     /games/:gameID               controllers.Application.loadGame(gameID:String)
 POST    /games/:gameID/move          controllers.Application.processMove(gameID:String)

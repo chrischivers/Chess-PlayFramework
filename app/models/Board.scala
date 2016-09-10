@@ -6,7 +6,7 @@ class Board {
   val state = Array.ofDim[Piece](Board.size, Board.size)
   var piecesTaken: Array[Piece] = Array()
 
-   def addPieceToBoard(piece:Piece, location:(Int,Int)) = {
+  def addPieceToBoard(piece: Piece, location: (Int, Int)) = {
     val array = state(location._1)
     array.update(location._2, piece)
     state.update(location._1, array)
@@ -25,9 +25,10 @@ class Board {
     activePiece match {
       case pawn: Pawn =>
         pawn.firstMoveMade = true
+      case _ =>
     }
     assert(activePiece != null)
-      }
+  }
 }
 
 object Board {

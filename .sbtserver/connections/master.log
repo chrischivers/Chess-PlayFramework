@@ -1,43 +1,67 @@
-New log file opened at Sun Aug 21 21:43:53 BST 2016 by 2391@chrischivers-W65-67SR
-Taking next connection to: 35345
-New client attempting to connect on port: 36854-35345
-  Address = /127.0.1.1:35345
-This client on port 36854 has uuid 3cbca65c-ae6d-44e8-b9ff-df0ef05c157e configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-3cbca65c-ae6d-44e8-b9ff-df0ef05c157e
-Taking next connection to: 35345
-New client attempting to connect on port: 36912-35345
-  Address = /127.0.1.1:35345
-Handshake exception on socket: 36912
-sbt.impl.ipc.HandshakeException: Unable to perform handshake
-	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
-	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
-	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
-Caused by: java.io.EOFException
-	at java.io.DataInputStream.readInt(DataInputStream.java:392)
-	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
-	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
-	... 2 more
-Taking next connection to: 35345
-New client attempting to connect on port: 36914-35345
-  Address = /127.0.1.1:35345
-This client on port 36914 has uuid 05f32e56-1379-44a2-90fb-0ce360928fc9 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-05f32e56-1379-44a2-90fb-0ce360928fc9
-Taking next connection to: 35345
-New client attempting to connect on port: 36966-35345
-  Address = /127.0.1.1:35345
-Handshake exception on socket: 36966
-sbt.impl.ipc.HandshakeException: Unable to perform handshake
-	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
-	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
-	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
-Caused by: java.io.EOFException
-	at java.io.DataInputStream.readInt(DataInputStream.java:392)
-	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
-	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
-	... 2 more
-Taking next connection to: 35345
-New client attempting to connect on port: 36968-35345
-  Address = /127.0.1.1:35345
-This client on port 36968 has uuid 06c2acba-42fa-49b0-bd95-f064bef6ddd7 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-06c2acba-42fa-49b0-bd95-f064bef6ddd7
-Taking next connection to: 35345
+New log file opened at Sat Sep 10 18:51:02 BST 2016 by 22688@chrischivers-W65-67SR
+Taking next connection to: 36460
+New client attempting to connect on port: 59254-36460
+  Address = /127.0.1.1:36460
+This client on port 59254 has uuid e5db8730-495e-4f48-8195-150da3e69308 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-e5db8730-495e-4f48-8195-150da3e69308
+Taking next connection to: 36460
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 36460
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 36460
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 36460
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 36460
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 36460
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 36460
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 36460
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 36460
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 36460
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 36460
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 36460
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 36460
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 36460
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 36460
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 36460
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 36460
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 36460
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 36460
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 22688@chrischivers-W65-67SR logs at Sat Sep 10 19:48:06 BST 2016, goodbye.
