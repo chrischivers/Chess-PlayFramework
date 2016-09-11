@@ -6,11 +6,15 @@ import akka.actor.{Actor, Props, ActorRef}
 import controllers.WebSocketActor
 import play.api.mvc.WebSocket
 
+import scala.collection.mutable.ListBuffer
 
 
 class Game(p1:Player1, p2:Player2) {
 
   private var openSockets: Array[WebSocketActor] = Array()
+  var nextPlayerToGo: Player = p1
+  val board: Board = Game.setUpNewBoard(p1,p2)
+  var playersInCheck:Map[Player, Boolean] = Map(p1 -> false, p2 -> false)
 
   def addSocket(actor:WebSocketActor) = {
     openSockets = openSockets :+ actor
@@ -24,18 +28,14 @@ class Game(p1:Player1, p2:Player2) {
     iD
   }
 
-
-  var nextPlayerToGo: Player = p1
-  val board: Board = Game.setUpNewBoard(p1,p2)
-
-  def isMoveValid(from: (Int, Int), to: (Int, Int)): Boolean = {
+  def isMoveValid(playerMoving: Player, from: (Int, Int), to: (Int, Int)): Boolean = {
     var valid = false
     val piece = board.state(from._1)(from._2)
     if (piece != null) {
-      if (isPieceOwnedByPlayer(piece)) {
+      if (piece.owner == playerMoving) {
         val path = piece.getPathOfMovement(from, to)
         if (path.isDefined) {
-          if (isPathClear(path.get) && isLandingPositionValid(from, to)) {
+          if (isPathClear(path.get) && isLandingPositionValid(playerMoving, from, to)) {
             valid = true
           }
         }
@@ -44,7 +44,6 @@ class Game(p1:Player1, p2:Player2) {
     valid
   }
 
-  def isPieceOwnedByPlayer(piece: Piece):Boolean = piece.owner == nextPlayerToGo
 
   def isPathClear(path:Array[(Int,Int)]): Boolean = {
     var clear = true
@@ -55,21 +54,21 @@ class Game(p1:Player1, p2:Player2) {
     clear
   }
 
-  def isLandingPositionValid(from: (Int, Int), to: (Int, Int)): Boolean = {
+  def isLandingPositionValid(playerMoving: Player, from: (Int, Int), to: (Int, Int)): Boolean = {
     var valid = false
     val thisPiece = board.state(from._1)(from._2)
     val landingOnPiece = board.state(to._1)(to._2)
 
     if (!thisPiece.isInstanceOf[Pawn]) {
       if (landingOnPiece == null) valid = true
-      else if (landingOnPiece.owner != nextPlayerToGo) valid = true
+      else if (landingOnPiece.owner != playerMoving) valid = true
       else valid = false //If landing on own piece
       valid
 
     } else {
       if (Math.abs(from._1 - to._1) == 1) {
         if (landingOnPiece == null) valid = false
-        else if (landingOnPiece.owner != nextPlayerToGo) valid = true
+        else if (landingOnPiece.owner != playerMoving) valid = true
         else valid = false //If landing on own piece
       } else {
         if (landingOnPiece == null) valid = true
@@ -82,12 +81,21 @@ class Game(p1:Player1, p2:Player2) {
   def updateBoard(from: (Int, Int), to: (Int, Int)) = {
     board.updateBoard(from,to)
     nextPlayerToGo = if (nextPlayerToGo == p1) p2 else p1
+    updatePlayersInCheck
     for (actor <- openSockets) {
       actor.boardUpdated()
     }
   }
 
+  def updatePlayersInCheck = {
+    for (player <- Seq(p1,p2)) {
+      val kingPosition = board.getKingPosition(player)
+      playersInCheck += player -> board.getAllPieces.exists(x => x.owner != player && isMoveValid(x.owner, x.currentPosition, kingPosition))
+    }
 
+    println(playersInCheck)
+
+  }
 }
 
 object Game {

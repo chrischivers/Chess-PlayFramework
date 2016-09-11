@@ -11,6 +11,7 @@ trait Piece {
   var owner:Player
   var taken = false
   val imageFileSuffix:String
+  var currentPosition:(Int,Int) = (-1, -1)  // -1, -1 is off board
   def getImageFileName = imageFileSuffix + "-" + owner.playerRef + ".png"
 
   override def toString:String = pieceName + " (" + owner +")"

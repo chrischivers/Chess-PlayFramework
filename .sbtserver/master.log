@@ -1,5 +1,5 @@
-New log file opened at Sat Sep 10 18:51:02 BST 2016 by 22688@chrischivers-W65-67SR
-jvm 22688@chrischivers-W65-67SR
+New log file opened at Sun Sep 11 21:28:33 BST 2016 by 29962@chrischivers-W65-67SR
+jvm 29962@chrischivers-W65-67SR
 jvm vmName=Java HotSpot(TM) 64-Bit Server VM vmVendor=Oracle Corporation vmVersion=25.77-b03
 jvm specName=Java Virtual Machine Specification specVendor=Oracle Corporation specVersion=1.8
 jvm arguments: [-Xms256m, -Xmx1024m, -XX:MetaspaceSize=64m, -XX:MaxMetaspaceSize=256m]
@@ -27,7 +27,7 @@ sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.Jvm
   :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
 [Loading] Done in /home/chrischivers/Code/Play/chess-play-framework/project, returning: (chess-play-framework-build)
 Loading project definition from /home/chrischivers/Code/Play/chess-play-framework/project
-Running task... Cancel: sbt.TaskCancellationStrategy$Null$@5bd5cb1f, check cycles: false
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@37f8cff8, check cycles: false
 [info] Updating {file:/home/chrischivers/Code/Play/chess-play-framework/project/}chess-play-framework-build...
 Updating {file:/home/chrischivers/Code/Play/chess-play-framework/project/}chess-play-framework-build...
 Other repositories:
@@ -15774,7 +15774,7 @@ sbt-chain: module revision found in cache: org.fusesource.jansi#jansi;1.4
 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.8-M3!apply-macro.jar
 	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar
 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-:: resolution report :: resolve 4382ms :: artifacts dl 68ms
+:: resolution report :: resolve 7956ms :: artifacts dl 114ms
 	report for default#chess-play-framework-build;0.1-SNAPSHOT compile produced in /home/chrischivers/Code/Play/chess-play-framework/project/target/resolution-cache/reports/default-chess-play-framework-build-compile.xml
 	report for default#chess-play-framework-build;0.1-SNAPSHOT runtime produced in /home/chrischivers/Code/Play/chess-play-framework/project/target/resolution-cache/reports/default-chess-play-framework-build-runtime.xml
 	report for default#chess-play-framework-build;0.1-SNAPSHOT test produced in /home/chrischivers/Code/Play/chess-play-framework/project/target/resolution-cache/reports/default-chess-play-framework-build-test.xml
@@ -15788,7 +15788,7 @@ sbt-chain: module revision found in cache: org.fusesource.jansi#jansi;1.4
 	report for default#chess-play-framework-build;0.1-SNAPSHOT docs produced in /home/chrischivers/Code/Play/chess-play-framework/project/target/resolution-cache/reports/default-chess-play-framework-build-docs.xml
 	report for default#chess-play-framework-build;0.1-SNAPSHOT pom produced in /home/chrischivers/Code/Play/chess-play-framework/project/target/resolution-cache/reports/default-chess-play-framework-build-pom.xml
 	report for default#chess-play-framework-build;0.1-SNAPSHOT scala-tool produced in /home/chrischivers/Code/Play/chess-play-framework/project/target/resolution-cache/reports/default-chess-play-framework-build-scala-tool.xml
-	resolve done (4382ms resolve - 68ms download)
+	resolve done (7956ms resolve - 114ms download)
 [info] Done updating.
 Done updating.
 
@@ -15828,10 +15828,3 @@ Set current project to chess-play-framework (in build file:/home/chrischivers/Co
 > iflast shell
 > server-send-ready-for-request
 > server-handle-next-server-request
-Done executing sbt server engine, result Right(Exit(0))
-Closing listening server socket
-Waiting for socket thread
-Waiting for request processor thread
-Waiting for command engine result
-Returning control to sbt launcher with result Exit(0)
-Closing the 22688@chrischivers-W65-67SR logs at Sat Sep 10 19:48:06 BST 2016, goodbye.

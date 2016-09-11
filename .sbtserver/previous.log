@@ -1,5 +1,5 @@
-New log file opened at Sat Sep 10 18:47:26 BST 2016 by 22193@chrischivers-W65-67SR
-jvm 22193@chrischivers-W65-67SR
+New log file opened at Sun Sep 11 21:23:36 BST 2016 by 29342@chrischivers-W65-67SR
+jvm 29342@chrischivers-W65-67SR
 jvm vmName=Java HotSpot(TM) 64-Bit Server VM vmVendor=Oracle Corporation vmVersion=25.77-b03
 jvm specName=Java Virtual Machine Specification specVendor=Oracle Corporation specVersion=1.8
 jvm arguments: [-Xms256m, -Xmx1024m, -XX:MetaspaceSize=64m, -XX:MaxMetaspaceSize=256m]
@@ -27,7 +27,7 @@ sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.Jvm
   :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
 [Loading] Done in /home/chrischivers/Code/Play/chess-play-framework/project, returning: (chess-play-framework-build)
 Loading project definition from /home/chrischivers/Code/Play/chess-play-framework/project
-Running task... Cancel: sbt.TaskCancellationStrategy$Null$@2051b6f2, check cycles: false
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@68f1b4d0, check cycles: false
 [info] Updating {file:/home/chrischivers/Code/Play/chess-play-framework/project/}chess-play-framework-build...
 Updating {file:/home/chrischivers/Code/Play/chess-play-framework/project/}chess-play-framework-build...
 Other repositories:
@@ -15774,7 +15774,7 @@ sbt-chain: module revision found in cache: org.fusesource.jansi#jansi;1.4
 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.8-M3!apply-macro.jar
 	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar
 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-:: resolution report :: resolve 6900ms :: artifacts dl 196ms
+:: resolution report :: resolve 5273ms :: artifacts dl 77ms
 	report for default#chess-play-framework-build;0.1-SNAPSHOT compile produced in /home/chrischivers/Code/Play/chess-play-framework/project/target/resolution-cache/reports/default-chess-play-framework-build-compile.xml
 	report for default#chess-play-framework-build;0.1-SNAPSHOT runtime produced in /home/chrischivers/Code/Play/chess-play-framework/project/target/resolution-cache/reports/default-chess-play-framework-build-runtime.xml
 	report for default#chess-play-framework-build;0.1-SNAPSHOT test produced in /home/chrischivers/Code/Play/chess-play-framework/project/target/resolution-cache/reports/default-chess-play-framework-build-test.xml
@@ -15788,7 +15788,7 @@ sbt-chain: module revision found in cache: org.fusesource.jansi#jansi;1.4
 	report for default#chess-play-framework-build;0.1-SNAPSHOT docs produced in /home/chrischivers/Code/Play/chess-play-framework/project/target/resolution-cache/reports/default-chess-play-framework-build-docs.xml
 	report for default#chess-play-framework-build;0.1-SNAPSHOT pom produced in /home/chrischivers/Code/Play/chess-play-framework/project/target/resolution-cache/reports/default-chess-play-framework-build-pom.xml
 	report for default#chess-play-framework-build;0.1-SNAPSHOT scala-tool produced in /home/chrischivers/Code/Play/chess-play-framework/project/target/resolution-cache/reports/default-chess-play-framework-build-scala-tool.xml
-	resolve done (6900ms resolve - 196ms download)
+	resolve done (5273ms resolve - 77ms download)
 [info] Done updating.
 Done updating.
 
@@ -15830,7 +15830,7 @@ Set current project to chess-play-framework (in build file:/home/chrischivers/Co
 > server-handle-next-server-request
 > {file:/home/chrischivers/Code/Play/chess-play-framework/}root/*:playForkConfig
 Evaluating tasks: *:playForkConfig
-Running task... Cancel: sbt.server.ServerTaskCancellation@161d02f5, check cycles: false
+Running task... Cancel: sbt.server.ServerTaskCancellation@786c8b27, check cycles: false
 Read from stdout: Updating {file:/home/chrischivers/Code/Play/chess-play-framework/}root...
 Updating {file:/home/chrischivers/Code/Play/chess-play-framework/}root...
 Other repositories:
@@ -15845,7 +15845,7 @@ resolving dependencies for configuration 'compile'
 == resolving dependencies chess-play-framework#chess-play-framework_2.10;1.0-SNAPSHOT->org.scala-lang#scala-library;2.10.4 [compile->default(compile)]
 Read from stdout: Resolving org.scala-lang#scala-library;2.10.4 ...
 Resolving org.scala-lang#scala-library;2.10.4 ...
-sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@31910a8f
+sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@611d81f6
 sbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.4
 	found org.scala-lang#scala-library;2.10.4 in sbt-chain
 	[2.10.4] org.scala-lang#scala-library;2.10.4
@@ -20839,7 +20839,7 @@ sbt-chain: module revision found in cache: net.contentobjects.jnotify#jnotify;0.
 	[NOT REQUIRED] org.scala-sbt#control;0.13.8-M3!control.jar
 	[NOT REQUIRED] com.typesafe.akka#akka-actor_2.10;2.3.8!akka-actor_2.10.jar
 	[NOT REQUIRED] com.typesafe.akka#akka-testkit_2.10;2.3.8!akka-testkit_2.10.jar
-:: resolution report :: resolve 1836ms :: artifacts dl 51ms
+:: resolution report :: resolve 4137ms :: artifacts dl 151ms
 	report for chess-play-framework#chess-play-framework_2.10;1.0-SNAPSHOT compile produced in /home/chrischivers/Code/Play/chess-play-framework/target/resolution-cache/reports/chess-play-framework-chess-play-framework_2.10-compile.xml
 	report for chess-play-framework#chess-play-framework_2.10;1.0-SNAPSHOT runtime produced in /home/chrischivers/Code/Play/chess-play-framework/target/resolution-cache/reports/chess-play-framework-chess-play-framework_2.10-runtime.xml
 	report for chess-play-framework#chess-play-framework_2.10;1.0-SNAPSHOT test produced in /home/chrischivers/Code/Play/chess-play-framework/target/resolution-cache/reports/chess-play-framework-chess-play-framework_2.10-test.xml
@@ -20854,42 +20854,42 @@ sbt-chain: module revision found in cache: net.contentobjects.jnotify#jnotify;0.
 	report for chess-play-framework#chess-play-framework_2.10;1.0-SNAPSHOT pom produced in /home/chrischivers/Code/Play/chess-play-framework/target/resolution-cache/reports/chess-play-framework-chess-play-framework_2.10-pom.xml
 	report for chess-play-framework#chess-play-framework_2.10;1.0-SNAPSHOT scala-tool produced in /home/chrischivers/Code/Play/chess-play-framework/target/resolution-cache/reports/chess-play-framework-chess-play-framework_2.10-scala-tool.xml
 	report for chess-play-framework#chess-play-framework_2.10;1.0-SNAPSHOT fork-run produced in /home/chrischivers/Code/Play/chess-play-framework/target/resolution-cache/reports/chess-play-framework-chess-play-framework_2.10-fork-run.xml
-	resolve done (1836ms resolve - 51ms download)
+	resolve done (4137ms resolve - 151ms download)
 Read from stdout: Done updating.
 Done updating.
-Total time: 2 s, completed 10-Sep-2016 18:48:00
+Total time: 5 s, completed 11-Sep-2016 21:25:32
 > server-post-command-cleanup
 > server-handle-next-server-request
 > root/playForkNotifyStart http://localhost:9000
 Evaluating tasks: *:playForkNotifyStart
-Running task... Cancel: sbt.server.ServerTaskCancellation@61696bde, check cycles: false
-Total time: 0 s, completed 10-Sep-2016 18:48:01
+Running task... Cancel: sbt.server.ServerTaskCancellation@6d5ef38f, check cycles: false
+Total time: 0 s, completed 11-Sep-2016 21:25:33
 > server-post-command-cleanup
 > server-handle-next-server-request
 > {file:/home/chrischivers/Code/Play/chess-play-framework/}root/*:playForkReload
 Evaluating tasks: *:playForkReload
-Running task... Cancel: sbt.server.ServerTaskCancellation@7932820e, check cycles: false
+Running task... Cancel: sbt.server.ServerTaskCancellation@6fe6dcba, check cycles: false
 
 Initial source changes: 
 	removed:Set()
 	added: Set()
-	modified: Set(/home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/twirl/main/views/html/start.template.scala)
+	modified: Set(/home/chrischivers/Code/Play/chess-play-framework/app/models/Game.scala)
 Removed products: Set()
 External API changes: API Changes: Set()
 Modified binary dependencies: Set()
-Initial directly invalidated sources: Set(/home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/twirl/main/views/html/start.template.scala)
+Initial directly invalidated sources: Set(/home/chrischivers/Code/Play/chess-play-framework/app/models/Game.scala)
 
 Sources indirectly invalidated by:
 	product: Set()
 	binary dep: Set()
 	external source: Set()
-All initially invalidated sources: Set(/home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/twirl/main/views/html/start.template.scala)
+All initially invalidated sources: Set(/home/chrischivers/Code/Play/chess-play-framework/app/models/Game.scala)
 
 Read from stdout: Compiling 1 Scala source to /home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/classes...
 Compiling 1 Scala source to /home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/classes...
 Getting compiler-interface from component compiler for Scala 2.10.4
 Getting compiler-interface from component compiler for Scala 2.10.4
-Running cached compiler 670c2e34, interfacing (CompilerInterface) with Scala compiler version 2.10.4
+Running cached compiler 378c85bf, interfacing (CompilerInterface) with Scala compiler version 2.10.4
 Calling Scala compiler with arguments  (CompilerInterface):
 	-deprecation
 	-unchecked
@@ -20899,7 +20899,7 @@ Calling Scala compiler with arguments  (CompilerInterface):
 	/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes:/home/chrischivers/.sbt/boot/scala-2.10.4/lib/scala-library.jar
 	-classpath
 	/home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/classes:/home/chrischivers/.ivy2/cache/com.typesafe.play/twirl-api_2.10/jars/twirl-api_2.10-1.0.2.jar:/home/chrischivers/.ivy2/cache/org.apache.commons/commons-lang3/jars/commons-lang3-3.1.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play_2.10/jars/play_2.10-2.3.10.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/build-link/jars/build-link-2.3.10.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-exceptions/jars/play-exceptions-2.3.10.jar:/home/chrischivers/.ivy2/cache/org.javassist/javassist/bundles/javassist-3.18.2-GA.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-iteratees_2.10/jars/play-iteratees_2.10-2.3.10.jar:/home/chrischivers/.ivy2/cache/org.scala-stm/scala-stm_2.10/jars/scala-stm_2.10-0.7.jar:/home/chrischivers/.ivy2/cache/com.typesafe/config/bundles/config-1.2.1.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-json_2.10/jars/play-json_2.10-2.3.10.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-functional_2.10/jars/play-functional_2.10-2.3.10.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-datacommons_2.10/jars/play-datacommons_2.10-2.3.10.jar:/home/chrischivers/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.3.jar:/home/chrischivers/.ivy2/cache/org.joda/joda-convert/jars/joda-convert-1.6.jar:/home/chrischivers/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/bundles/jackson-annotations-2.3.2.jar:/home/chrischivers/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/bundles/jackson-core-2.3.2.jar:/home/chrischivers/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/bundles/jackson-databind-2.3.2.jar:/home/chrischivers/.sbt/boot/scala-2.10.4/lib/scala-reflect.jar:/home/chrischivers/.ivy2/cache/io.netty/netty/bundles/netty-3.9.9.Final.jar:/home/chrischivers/.ivy2/cache/com.typesafe.netty/netty-http-pipelining/jars/netty-http-pipelining-1.1.2.jar:/home/chrischivers/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.6.jar:/home/chrischivers/.ivy2/cache/org.slf4j/jul-to-slf4j/jars/jul-to-slf4j-1.7.6.jar:/home/chrischivers/.ivy2/cache/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.7.6.jar:/home/chrischivers/.ivy2/cache/ch.qos.logback/logback-core/jars/logback-core-1.1.1.jar:/home/chrischivers/.ivy2/cache/ch.qos.logback/logback-classic/jars/logback-classic-1.1.1.jar:/home/chrischivers/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/jars/akka-actor_2.10-2.3.4.jar:/home/chrischivers/.ivy2/cache/com.typesafe.akka/akka-slf4j_2.10/jars/akka-slf4j_2.10-2.3.4.jar:/home/chrischivers/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.9.jar:/home/chrischivers/.ivy2/cache/xerces/xercesImpl/jars/xercesImpl-2.11.0.jar:/home/chrischivers/.ivy2/cache/xml-apis/xml-apis/jars/xml-apis-1.4.01.jar:/home/chrischivers/.ivy2/cache/javax.transaction/jta/jars/jta-1.1.jar
-Scala compilation took 1.720649269 s
+Scala compilation took 4.163931287 s
 New invalidations:
 	Set()
 Initial set of included nodes: Set()
@@ -20909,33 +20909,33 @@ All newly invalidated sources after taking into account (previously) recompiled 
 Copy resource mappings: 
 	(/home/chrischivers/Code/Play/chess-play-framework/conf/application.conf,/home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/classes/application.conf)
 	(/home/chrischivers/Code/Play/chess-play-framework/conf/routes,/home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/classes/routes)
-Total time: 4 s, completed 10-Sep-2016 18:48:20
+Total time: 5 s, completed 11-Sep-2016 21:25:58
 > server-post-command-cleanup
 > server-handle-next-server-request
 > {file:/home/chrischivers/Code/Play/chess-play-framework/}root/*:playForkReload
 Evaluating tasks: *:playForkReload
-Running task... Cancel: sbt.server.ServerTaskCancellation@7e8bbcd8, check cycles: false
+Running task... Cancel: sbt.server.ServerTaskCancellation@38524eb8, check cycles: false
 
 Initial source changes: 
 	removed:Set()
 	added: Set()
-	modified: Set(/home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/twirl/main/views/html/start.template.scala)
+	modified: Set(/home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/twirl/main/views/html/board.template.scala)
 Removed products: Set()
 External API changes: API Changes: Set()
 Modified binary dependencies: Set()
-Initial directly invalidated sources: Set(/home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/twirl/main/views/html/start.template.scala)
+Initial directly invalidated sources: Set(/home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/twirl/main/views/html/board.template.scala)
 
 Sources indirectly invalidated by:
 	product: Set()
 	binary dep: Set()
 	external source: Set()
-All initially invalidated sources: Set(/home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/twirl/main/views/html/start.template.scala)
+All initially invalidated sources: Set(/home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/twirl/main/views/html/board.template.scala)
 
 Read from stdout: Compiling 1 Scala source to /home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/classes...
 Compiling 1 Scala source to /home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/classes...
 Getting compiler-interface from component compiler for Scala 2.10.4
 Getting compiler-interface from component compiler for Scala 2.10.4
-Running cached compiler 7d8d3836, interfacing (CompilerInterface) with Scala compiler version 2.10.4
+Running cached compiler 5160cba7, interfacing (CompilerInterface) with Scala compiler version 2.10.4
 Calling Scala compiler with arguments  (CompilerInterface):
 	-deprecation
 	-unchecked
@@ -20945,7 +20945,7 @@ Calling Scala compiler with arguments  (CompilerInterface):
 	/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes:/home/chrischivers/.sbt/boot/scala-2.10.4/lib/scala-library.jar
 	-classpath
 	/home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/classes:/home/chrischivers/.ivy2/cache/com.typesafe.play/twirl-api_2.10/jars/twirl-api_2.10-1.0.2.jar:/home/chrischivers/.ivy2/cache/org.apache.commons/commons-lang3/jars/commons-lang3-3.1.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play_2.10/jars/play_2.10-2.3.10.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/build-link/jars/build-link-2.3.10.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-exceptions/jars/play-exceptions-2.3.10.jar:/home/chrischivers/.ivy2/cache/org.javassist/javassist/bundles/javassist-3.18.2-GA.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-iteratees_2.10/jars/play-iteratees_2.10-2.3.10.jar:/home/chrischivers/.ivy2/cache/org.scala-stm/scala-stm_2.10/jars/scala-stm_2.10-0.7.jar:/home/chrischivers/.ivy2/cache/com.typesafe/config/bundles/config-1.2.1.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-json_2.10/jars/play-json_2.10-2.3.10.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-functional_2.10/jars/play-functional_2.10-2.3.10.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-datacommons_2.10/jars/play-datacommons_2.10-2.3.10.jar:/home/chrischivers/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.3.jar:/home/chrischivers/.ivy2/cache/org.joda/joda-convert/jars/joda-convert-1.6.jar:/home/chrischivers/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/bundles/jackson-annotations-2.3.2.jar:/home/chrischivers/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/bundles/jackson-core-2.3.2.jar:/home/chrischivers/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/bundles/jackson-databind-2.3.2.jar:/home/chrischivers/.sbt/boot/scala-2.10.4/lib/scala-reflect.jar:/home/chrischivers/.ivy2/cache/io.netty/netty/bundles/netty-3.9.9.Final.jar:/home/chrischivers/.ivy2/cache/com.typesafe.netty/netty-http-pipelining/jars/netty-http-pipelining-1.1.2.jar:/home/chrischivers/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.6.jar:/home/chrischivers/.ivy2/cache/org.slf4j/jul-to-slf4j/jars/jul-to-slf4j-1.7.6.jar:/home/chrischivers/.ivy2/cache/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.7.6.jar:/home/chrischivers/.ivy2/cache/ch.qos.logback/logback-core/jars/logback-core-1.1.1.jar:/home/chrischivers/.ivy2/cache/ch.qos.logback/logback-classic/jars/logback-classic-1.1.1.jar:/home/chrischivers/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/jars/akka-actor_2.10-2.3.4.jar:/home/chrischivers/.ivy2/cache/com.typesafe.akka/akka-slf4j_2.10/jars/akka-slf4j_2.10-2.3.4.jar:/home/chrischivers/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.9.jar:/home/chrischivers/.ivy2/cache/xerces/xercesImpl/jars/xercesImpl-2.11.0.jar:/home/chrischivers/.ivy2/cache/xml-apis/xml-apis/jars/xml-apis-1.4.01.jar:/home/chrischivers/.ivy2/cache/javax.transaction/jta/jars/jta-1.1.jar
-Scala compilation took 0.922727703 s
+Scala compilation took 1.786899002 s
 New invalidations:
 	Set()
 Initial set of included nodes: Set()
@@ -20955,7 +20955,7 @@ All newly invalidated sources after taking into account (previously) recompiled 
 Copy resource mappings: 
 	(/home/chrischivers/Code/Play/chess-play-framework/conf/application.conf,/home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/classes/application.conf)
 	(/home/chrischivers/Code/Play/chess-play-framework/conf/routes,/home/chrischivers/Code/Play/chess-play-framework/target/scala-2.10/classes/routes)
-Total time: 2 s, completed 10-Sep-2016 18:48:42
+Total time: 3 s, completed 11-Sep-2016 21:27:51
 > server-post-command-cleanup
 > server-handle-next-server-request
 Done executing sbt server engine, result Right(Exit(0))
@@ -20964,4 +20964,4 @@ Waiting for socket thread
 Waiting for request processor thread
 Waiting for command engine result
 Returning control to sbt launcher with result Exit(0)
-Closing the 22193@chrischivers-W65-67SR logs at Sat Sep 10 18:50:57 BST 2016, goodbye.
+Closing the 29342@chrischivers-W65-67SR logs at Sun Sep 11 21:28:27 BST 2016, goodbye.

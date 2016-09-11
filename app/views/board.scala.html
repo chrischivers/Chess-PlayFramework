@@ -38,9 +38,16 @@
 
 <div id="off_board">
 
-        <br>Pieces Taken</br>
+    <br>Players in Check </br>
+    @for(entry <- game.playersInCheck) {
+         @if(entry._2) {
+             <br>@entry._1 </br>
+        }
+    }
+
+        <br>Pieces Taken </br>
         @for(piece <- game.board.piecesTaken) {
-            <br>@piece</br>
+            <br>@piece </br>
         }
 
 </div>

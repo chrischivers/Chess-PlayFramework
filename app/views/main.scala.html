@@ -62,7 +62,6 @@
 
             function setUpWebSocket() {
                 if ("WebSocket" in window) {
-                alert("Websocket setting up...")
                    var ws = new WebSocket("ws://localhost:9000/games/" + @gameID + "/socket");
 
                    ws.onmessage = function (evt) {

@@ -53,7 +53,7 @@ object Application extends Controller {
     if (gameOpt.isDefined) {
       val game = gameOpt.get
       val piece = game.board.state(moveFrom._1)(moveFrom._2)
-      if (game.isMoveValid(moveFrom,moveTo)) {
+      if (game.isMoveValid(game.nextPlayerToGo, moveFrom,moveTo)) {
         println("Move valid")
         game.updateBoard(moveFrom,moveTo)
         println("Board updated")
