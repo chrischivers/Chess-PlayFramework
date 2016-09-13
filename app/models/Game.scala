@@ -31,12 +31,14 @@ class Game(p1:Player1, p2:Player2) {
   def isMoveValid(playerMoving: Player, from: (Int, Int), to: (Int, Int)): Boolean = {
     var valid = false
     val piece = board.state(from._1)(from._2)
-    if (piece != null) {
-      if (piece.owner == playerMoving) {
-        val path = piece.getPathOfMovement(from, to)
+    if (piece.isDefined) {
+      if (piece.get.owner == playerMoving) {
+        val path = piece.get.getPathOfMovement(from, to)
         if (path.isDefined) {
           if (isPathClear(path.get) && isLandingPositionValid(playerMoving, from, to)) {
-            valid = true
+
+              valid = true
+
           }
         }
       }
@@ -49,7 +51,8 @@ class Game(p1:Player1, p2:Player2) {
     var clear = true
     for (i <- 1 until path.length - 1) { //Does not check the first or last position on the path
         println("Checking square: x=" + path(i)._1 + ", y=" + path(i)._2)
-        if (board.state(path(i)._1)(path(i)._2) != null) clear = false
+        if (board.state(path(i)._1)(path(i)._2) != None) clear = false
+        if (board.state(path(i)._1)(path(i)._2) != None) clear = false
     }
     clear
   }
@@ -59,19 +62,19 @@ class Game(p1:Player1, p2:Player2) {
     val thisPiece = board.state(from._1)(from._2)
     val landingOnPiece = board.state(to._1)(to._2)
 
-    if (!thisPiece.isInstanceOf[Pawn]) {
-      if (landingOnPiece == null) valid = true
-      else if (landingOnPiece.owner != playerMoving) valid = true
+    if (!thisPiece.orNull.isInstanceOf[Pawn]) {
+      if (landingOnPiece.isEmpty) valid = true
+      else if (landingOnPiece.get.owner != playerMoving) valid = true
       else valid = false //If landing on own piece
       valid
 
     } else {
       if (Math.abs(from._1 - to._1) == 1) {
-        if (landingOnPiece == null) valid = false
-        else if (landingOnPiece.owner != playerMoving) valid = true
+        if (landingOnPiece == None) valid = false
+        else if (landingOnPiece.get.owner != playerMoving) valid = true
         else valid = false //If landing on own piece
       } else {
-        if (landingOnPiece == null) valid = true
+        if (landingOnPiece == None) valid = true
         else valid = false //Pawn cannot take pieces in a straight line
       }
       valid
@@ -92,9 +95,13 @@ class Game(p1:Player1, p2:Player2) {
       val kingPosition = board.getKingPosition(player)
       playersInCheck += player -> board.getAllPieces.exists(x => x.owner != player && isMoveValid(x.owner, x.currentPosition, kingPosition))
     }
+  }
 
-    println(playersInCheck)
-
+  def doesMovePutMovingPlayerInCheck(playerMoving: Player, from: (Int, Int), to: (Int, Int)): Boolean = {
+    val simulateBoard:Board = board.createClone
+    simulateBoard.updateBoard(from,to)
+    val kingPosition = simulateBoard.getKingPosition(playerMoving)
+    simulateBoard.getAllPieces.exists(x => x.owner != playerMoving && isMoveValid(x.owner, x.currentPosition, kingPosition))
   }
 }
 

@@ -16,6 +16,8 @@ trait Piece {
 
   override def toString:String = pieceName + " (" + owner +")"
 
+  override def clone:Piece = this
+
   def getPathOfMovement(from:(Int,Int), to:(Int,Int)):Option[Array[(Int,Int)]]
 
   protected def getStraightPath(from: (Int, Int), to: (Int, Int)):Array[(Int, Int)] = {

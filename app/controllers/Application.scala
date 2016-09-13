@@ -54,11 +54,17 @@ object Application extends Controller {
       val game = gameOpt.get
       val piece = game.board.state(moveFrom._1)(moveFrom._2)
       if (game.isMoveValid(game.nextPlayerToGo, moveFrom,moveTo)) {
-        println("Move valid")
-        game.updateBoard(moveFrom,moveTo)
-        println("Board updated")
-        Ok(views.html.board(game)).withHeaders(
-          ("RESULT", "SUCCESS"))
+        if (!game.doesMovePutMovingPlayerInCheck(game.nextPlayerToGo,moveFrom,moveTo)) {
+          println("Move valid")
+          game.updateBoard(moveFrom, moveTo)
+          println("Board updated")
+          Ok(views.html.board(game)).withHeaders(
+            ("RESULT", "SUCCESS"))
+        } else {
+          println("Move invalid")
+          Ok("N/A").withHeaders(
+            ("RESULT","INVALID_MOVE. PLAYER IN CHECK"))
+        }
       } else {
         println("Move invalid")
         Ok("N/A").withHeaders(

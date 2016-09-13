@@ -1,4 +1,4 @@
-@(game: Game)
+@(game:Game)
 <!DOCTYPE html>
 <div id="subheader">
     Player to move: @game.nextPlayerToGo
@@ -26,7 +26,7 @@
             }
               <a href="#" id="@x,@y" onclick="linkClick(this.id);return false;">
               @if(game.board.state(x)(y) != null) {
-                  <image src="../assets/images/@game.board.state(x)(y).getImageFileName"></image>
+                  <image src="../assets/images/@game.board.state(x)(y).get.getImageFileName"></image>
               }
               </a>
             </td>
