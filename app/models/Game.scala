@@ -51,8 +51,8 @@ class Game(p1:Player1, p2:Player2) {
     var clear = true
     for (i <- 1 until path.length - 1) { //Does not check the first or last position on the path
         println("Checking square: x=" + path(i)._1 + ", y=" + path(i)._2)
-        if (board.state(path(i)._1)(path(i)._2) != None) clear = false
-        if (board.state(path(i)._1)(path(i)._2) != None) clear = false
+        if (board.state(path(i)._1)(path(i)._2).isDefined) clear = false
+        if (board.state(path(i)._1)(path(i)._2).isDefined) clear = false
     }
     clear
   }
@@ -70,11 +70,11 @@ class Game(p1:Player1, p2:Player2) {
 
     } else {
       if (Math.abs(from._1 - to._1) == 1) {
-        if (landingOnPiece == None) valid = false
+        if (landingOnPiece.isEmpty) valid = false
         else if (landingOnPiece.get.owner != playerMoving) valid = true
         else valid = false //If landing on own piece
       } else {
-        if (landingOnPiece == None) valid = true
+        if (landingOnPiece.isEmpty) valid = true
         else valid = false //Pawn cannot take pieces in a straight line
       }
       valid

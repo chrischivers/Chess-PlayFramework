@@ -2,7 +2,14 @@ package models
 
 class Board {
 
-  var state = Array.ofDim[Option[Piece]](Board.size, Board.size)
+  var state: Array[Array[Option[Piece]]] = Array.ofDim[Option[Piece]](Board.size, Board.size)
+
+  // Set all squares in Array to None
+  for {
+    i <- state.indices
+    j <- state(i).indices
+  } state(i)(j) = None
+
   var piecesTaken: Array[Piece] = Array()
 
   def addPieceToBoard(piece: Piece, location: (Int, Int)) = {

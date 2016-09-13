@@ -25,7 +25,7 @@
             <td class="blacksquare">
             }
               <a href="#" id="@x,@y" onclick="linkClick(this.id);return false;">
-              @if(game.board.state(x)(y) != null) {
+              @if(game.board.state(x)(y).isDefined) {
                   <image src="../assets/images/@game.board.state(x)(y).get.getImageFileName"></image>
               }
               </a>
