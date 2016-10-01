@@ -11,36 +11,36 @@ trait Piece {
   var owner:Player
   var taken = false
   val imageFileSuffix:String
-  var currentPosition:(Int,Int) = (-1, -1)  // -1, -1 is off board
+  var currentPosition:Position = Position(-1, -1)  // -1, -1 is off board
   def getImageFileName = imageFileSuffix + "-" + owner.playerRef + ".png"
 
   override def toString:String = pieceName + " (" + owner +")"
 
   override def clone:Piece = this
 
-  def getPathOfMovement(from:(Int,Int), to:(Int,Int)):Option[Array[(Int,Int)]]
+  def getPathOfMovement(from:Position, to:Position):Option[Array[Position]]
 
-  protected def getStraightPath(from: (Int, Int), to: (Int, Int)):Array[(Int, Int)] = {
-    var array:Array[(Int,Int)] = Array()
-    val xLoopDirection = if (from._1 - to._1 < 0) 1 else -1
-    val yLoopDirection = if (from._2 - to._2 < 0) 1 else -1
-    for (x <- from._1 to to._1 by xLoopDirection) {
-      for (y <- from._2 to to._2 by yLoopDirection) {
-        array = array :+ (x,y)
+  protected def getStraightPath(from: Position, to: Position):Array[Position] = {
+    var array:Array[Position] = Array()
+    val xLoopDirection = if (from.x - to.x < 0) 1 else -1
+    val yLoopDirection = if (from.y - to.y < 0) 1 else -1
+    for (x <- from.x to to.x by xLoopDirection) {
+      for (y <- from.y to to.y by yLoopDirection) {
+        array = array :+ Position(x,y)
       }
     }
     array
   }
 
-  protected def getDiagonalPath(from: (Int, Int), to: (Int, Int)):Array[(Int, Int)] = {
-    var array:Array[(Int,Int)] = Array()
-    val xLoopDirection = if (from._1 - to._1 < 0) 1 else -1
-    val yLoopDirection = if (from._2 - to._2 < 0) 1 else -1
-    val numberOfMoves = Math.abs(from._1 - to._1)
+  protected def getDiagonalPath(from: Position, to: Position):Array[Position] = {
+    var array:Array[Position] = Array()
+    val xLoopDirection = if (from.x - to.x < 0) 1 else -1
+    val yLoopDirection = if (from.y - to.y < 0) 1 else -1
+    val numberOfMoves = Math.abs(from.x - to.x)
     for (i <- 0 to numberOfMoves) {
-        val x = from._1 + (xLoopDirection * i)
-        val y = from._2 + (yLoopDirection * i)
-        array = array :+ (x,y)
+        val x = from.x + (xLoopDirection * i)
+        val y = from.y + (yLoopDirection * i)
+        array = array :+ Position(x,y)
     }
     array
   }
@@ -51,8 +51,8 @@ case class Rook(var owner:Player) extends Piece {
   override val pieceName: String = "Rook"
   override val imageFileSuffix: String = "rook"
 
-  override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
-    if (from._1 == to._1 ^ from._2 == to._2) {
+  override def getPathOfMovement(from: Position, to: Position): Option[Array[Position]] = {
+    if (from.x == to.x ^ from.y == to.y) {
       Option(getStraightPath(from,to))
     } else {
       None
@@ -65,9 +65,9 @@ case class Rook(var owner:Player) extends Piece {
 case class King(var owner:Player) extends Piece {
   override val pieceName: String = "King"
   override val imageFileSuffix: String = "king"
-  override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
-    if (Math.abs(from._1 - to._1) ==  1 || Math.abs(from._2 - to._2) == 1) {
-      Option(Array[(Int,Int)](from,to)) // Path only consists of from and to, no inbetween as King can only move one square
+  override def getPathOfMovement(from: Position, to: Position): Option[Array[Position]] = {
+    if ((Math.abs(from.x - to.x) != 0 || Math.abs(from.y - to.y) != 0) && Math.abs(from.x - to.x) <=  1 && Math.abs(from.y - to.y) <= 1) {
+      Option(Array[Position](from,to)) // Path only consists of from and to, no inbetween as King can only move one square
     } else {
       None
     }
@@ -78,10 +78,10 @@ case class Queen(var owner:Player) extends Piece {
   override val pieceName: String = "Queen"
   override val imageFileSuffix: String = "queen"
 
-  override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
-    if (Math.abs(from._1 - to._1) == Math.abs(from._2 - to._2)) {
+  override def getPathOfMovement(from: Position, to: Position): Option[Array[Position]] = {
+    if (Math.abs(from.x - to.x) == Math.abs(from.y - to.y)) {
       Option(getDiagonalPath(from, to))
-    } else if (from._1 == to._1 ^ from._2 == to._2){
+    } else if (from.x == to.x ^ from.y == to.y){
       Option(getStraightPath(from,to))
     } else {
       None
@@ -93,8 +93,8 @@ case class Bishop(var owner:Player) extends Piece {
   override val pieceName: String = "Bishop"
   override val imageFileSuffix: String = "bishop"
 
-  override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
-    if (Math.abs(from._1 - to._1) == Math.abs(from._2 - to._2)) {
+  override def getPathOfMovement(from: Position, to: Position): Option[Array[Position]] = {
+    if (Math.abs(from.x - to.x) == Math.abs(from.y - to.y)) {
       Option(getDiagonalPath(from, to))
     } else {
       None
@@ -106,9 +106,9 @@ case class Knight(var owner:Player) extends Piece {
   override val pieceName: String = "Knight"
   override val imageFileSuffix: String = "knight"
 
-  override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
-    if ((Math.abs(from._1 - to._1) == 2 && Math.abs(from._2 - to._2) == 1) || (Math.abs(from._1 - to._1) == 1 && Math.abs(from._2 - to._2) == 2)){
-      Option(Array[(Int,Int)](from,to)) // Path only consists of from and to, no inbetween as Knight can jump
+  override def getPathOfMovement(from: Position, to: Position): Option[Array[Position]] = {
+    if ((Math.abs(from.x - to.x) == 2 && Math.abs(from.y - to.y) == 1) || (Math.abs(from.x - to.x) == 1 && Math.abs(from.y - to.y) == 2)){
+      Option(Array[Position](from,to)) // Path only consists of from and to, no inbetween as Knight can jump
     } else {
       None
     }
@@ -120,10 +120,10 @@ case class Pawn(var owner:Player) extends Piece {
   override val imageFileSuffix: String = "pawn"
   var firstMoveMade = false
 
-  override def getPathOfMovement(from: (Int, Int), to: (Int, Int)): Option[Array[(Int, Int)]] = {
-    if (to._2 - from._2 == owner.yDirection || (!firstMoveMade && to._2 - from._2 == (owner.yDirection * 2))) {
-      if (from._1 == to._1) Option(getStraightPath(from,to))
-      else if (Math.abs(from._1 - to._1) == 1) Option(getDiagonalPath(from,to))
+  override def getPathOfMovement(from: Position, to: Position): Option[Array[Position]] = {
+    if (to.y - from.y == owner.yDirection || (!firstMoveMade && to.y - from.y == (owner.yDirection * 2))) {
+      if (from.x == to.x) Option(getStraightPath(from,to))
+      else if (Math.abs(from.x - to.x) == 1) Option(getDiagonalPath(from,to))
       else None
     } else {
       None

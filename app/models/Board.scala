@@ -5,26 +5,23 @@ class Board {
   var state: Array[Array[Option[Piece]]] = Array.ofDim[Option[Piece]](Board.size, Board.size)
 
   // Set all squares in Array to None
-  for {
-    i <- state.indices
-    j <- state(i).indices
-  } state(i)(j) = None
+  for (i <- state.indices; j <- state(i).indices) state(i)(j) = None
 
   var piecesTaken: Array[Piece] = Array()
 
-  def addPieceToBoard(piece: Piece, location: (Int, Int)) = {
-    val array = state(location._1)
-    array.update(location._2, Some(piece))
-    state.update(location._1, array)
+  def addPieceToBoard(piece: Piece, location: Position) = {
+    val array = state(location.x)
+    array.update(location.y, Some(piece))
+    state.update(location.x, array)
     piece.currentPosition = location
   }
 
   def removePieceFromBoard(takenPiece: Piece) = {
     piecesTaken = piecesTaken :+ takenPiece
-    takenPiece.currentPosition = (-1, -1)
+    takenPiece.currentPosition = Position(-1, -1)
   }
 
-  def getKingPosition(player:Player): (Int, Int) = {
+  def getKingPosition(player:Player): Position = {
     val tempArray = for {
       row <- state
       piece <- row
@@ -38,12 +35,12 @@ class Board {
   def getAllPieces: Array[Piece] = state.flatten.flatten
 
 
-  def updateBoard(from: (Int, Int), to: (Int, Int)) = {
-    val activePiece = state(from._1)(from._2).getOrElse(throw new NoSuchElementException("Active Piece not retrievable after validation"))
-    state(from._1)(from._2) = None
-    val takenPiece = state(to._1)(to._2)
+  def updateBoard(from: Position, to: Position) = {
+    val activePiece = state(from.x)(from.y).getOrElse(throw new NoSuchElementException("Active Piece not retrievable after validation"))
+    state(from.x)(from.y) = None
+    val takenPiece = state(to.x)(to.y)
     if (takenPiece.isDefined) removePieceFromBoard(takenPiece.get)
-    state(to._1)(to._2) = Some(activePiece)
+    state(to.x)(to.y) = Some(activePiece)
     activePiece.currentPosition = to
 
     activePiece match {

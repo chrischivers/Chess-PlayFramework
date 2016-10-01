@@ -15,18 +15,18 @@
             }
             </tr>
 
-      @for(y <- game.board.state.indices) {
+      @for(y <- game.getBoardState.indices) {
         <tr class = "row-labels">
             <td class = "row-labels">@y</td>
-        @for(x <- game.board.state(y).indices) {
+        @for(x <- game.getBoardState(y).indices) {
           @if((y % 2 == 0 && x % 2 == 0) || (y % 2 == 1 && x % 2 == 1)){
             <td class="whitesquare">
             } else {
             <td class="blacksquare">
             }
               <a href="#" id="@x,@y" onclick="linkClick(this.id);return false;">
-              @if(game.board.state(x)(y).isDefined) {
-                  <image src="../assets/images/@game.board.state(x)(y).get.getImageFileName"></image>
+              @if(game.getBoardState(x)(y).isDefined) {
+                  <image src="../assets/images/@game.getBoardState(x)(y).get.getImageFileName"></image>
               }
               </a>
             </td>
@@ -44,9 +44,10 @@
              <br>@entry._1 </br>
         }
     }
+    <br><br>
 
         <br>Pieces Taken </br>
-        @for(piece <- game.board.piecesTaken) {
+        @for(piece <- game.getPiecesTaken) {
             <br>@piece </br>
         }
 

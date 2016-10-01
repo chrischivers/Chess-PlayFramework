@@ -3,7 +3,7 @@ package controllers
 import java.util.Random
 
 import akka.actor.{Actor, Props, ActorRef}
-import models.{Board, Player2, Player1, Game}
+import models._
 import play.api.mvc._
 import play.api.Play.current
 
@@ -16,20 +16,21 @@ object Application extends Controller {
     Ok(views.html.start())
   }
 
-  def openSocket(gameId: String)  = {
-        WebSocket.acceptWithActor[String, String] { request => out =>
+  def openSocket(gameId: String) = {
+    WebSocket.acceptWithActor[String, String] { request => out =>
         WebSocketActor.props(Game.activeGames.get(gameId).get, out)
     }
   }
 
   def setUpNewGame() = Action {
-      val game = new Game(Game.p1, Game.p2)
-      Game.activeGames += (game.gameID -> game)
-      Redirect("/games/" + game.gameID)
+    val gameID = Game.generateGameID
+    val game = new Game(gameID, Game.p1, Game.p2)
+    Game.activeGames += (gameID -> game)
+    Redirect("/games/" + gameID)
   }
 
 
-  def loadGame(gameId:String) = Action{
+  def loadGame(gameId: String) = Action {
     if (Game.activeGames.contains(gameId)) {
       Ok(views.html.main(gameId))
     } else {
@@ -37,46 +38,35 @@ object Application extends Controller {
     }
   }
 
-  def processMove(gameID:String) = Action {
-      request =>
+
+  def processMove(gameID: String) = Action {
+    request =>
 
       val moveFrom = request.body.asFormUrlEncoded.get("move-from") match {
-        case a:ArrayBuffer[String] =>  (a.head.split(",")(0).toInt, a.head.split(",")(1).toInt)
+        case a: ArrayBuffer[String] => Position(a.head.split(",")(0).toInt, a.head.split(",")(1).toInt)
         case _ => throw new IllegalArgumentException
       }
-        val moveTo = request.body.asFormUrlEncoded.get("move-to") match {
-          case a:ArrayBuffer[String] =>  (a.head.split(",")(0).toInt, a.head.split(",")(1).toInt)
-          case _ => throw new IllegalArgumentException
-        }
-
-    val gameOpt = Game.activeGames.get(gameID.trim)
-    if (gameOpt.isDefined) {
-      val game = gameOpt.get
-      val piece = game.board.state(moveFrom._1)(moveFrom._2)
-      if (game.isMoveValid(game.nextPlayerToGo, moveFrom,moveTo)) {
-        if (!game.doesMovePutMovingPlayerInCheck(game.nextPlayerToGo,moveFrom,moveTo)) {
-          println("Move valid")
-          game.updateBoard(moveFrom, moveTo)
-          println("Board updated")
-          Ok(views.html.board(game)).withHeaders(
-            ("RESULT", "SUCCESS"))
-        } else {
-          println("Move invalid")
-          Ok("N/A").withHeaders(
-            ("RESULT","INVALID_MOVE. PLAYER IN CHECK"))
-        }
-      } else {
-        println("Move invalid")
-        Ok("N/A").withHeaders(
-          ("RESULT","INVALID_MOVE")
-        )
+      val moveTo = request.body.asFormUrlEncoded.get("move-to") match {
+        case a: ArrayBuffer[String] => Position(a.head.split(",")(0).toInt, a.head.split(",")(1).toInt)
+        case _ => throw new IllegalArgumentException
       }
-    } else {
-      println("Not an active game")
-      Ok("N/A").withHeaders(
-        ("RESULT","INVALID_GAME")
-      )
-    }
+
+      Game.activeGames.get(gameID.trim).isDefined match {
+        case false => Ok("N/A").withHeaders(("RESULT", "Game with this ID does not exist."))
+        case true =>
+          val game = Game.activeGames.get(gameID.trim).get
+          val piece = game.getPieceAtLocation(Position(moveFrom.x, moveFrom.y))
+          game.isMoveValid(game.liveBoard, game.nextPlayerToGo, moveFrom, moveTo) match {
+            case false => Ok("N/A").withHeaders(("RESULT", "Invalid move. Moving piece from " + moveFrom +  " to " + moveTo + " is invalid."))
+            case true =>
+              game.doesMovePutMovingPlayerInCheck(game.liveBoard, game.nextPlayerToGo, moveFrom, moveTo) match {
+                case true => Ok("N/A").withHeaders(("RESULT", "Invalid Move. By making this move the player would be in check."))
+                case false =>
+                  game.updateBoard(game.liveBoard, moveFrom, moveTo)
+                  Ok(views.html.board(game)).withHeaders(("RESULT", "SUCCESS"))
+              }
+          }
+      }
   }
 
   def getBoard(gameID: String) = Action {
@@ -94,7 +84,7 @@ object Application extends Controller {
 
 object WebSocketActor {
   def props(game: Game, out: ActorRef) = {
-      Props(new WebSocketActor(game, out))
+    Props(new WebSocketActor(game, out))
 
   }
 }
@@ -106,6 +96,7 @@ class WebSocketActor(game: Game, out: ActorRef) extends Actor {
   def boardUpdated() = {
     out ! "UPDATE_BOARD"
   }
+
   def receive = {
     case msg: String =>
       //TODO remove?

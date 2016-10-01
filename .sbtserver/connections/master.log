@@ -1,7 +1,34 @@
-New log file opened at Tue Sep 13 22:39:51 BST 2016 by 23507@chrischivers-W65-67SR
-Taking next connection to: 40722
-New client attempting to connect on port: 33754-40722
-  Address = /127.0.1.1:40722
-This client on port 33754 has uuid 496d698c-9f12-44cc-a24f-7934027d8b14 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-496d698c-9f12-44cc-a24f-7934027d8b14
-Taking next connection to: 40722
+New log file opened at Sat Oct 01 16:07:44 BST 2016 by 8963@chrischivers-W65-67SR
+Taking next connection to: 43449
+New client attempting to connect on port: 54192-43449
+  Address = /127.0.1.1:43449
+This client on port 54192 has uuid 0211389a-7b9e-40cd-bd0a-8c4a20e77816 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-0211389a-7b9e-40cd-bd0a-8c4a20e77816
+Taking next connection to: 43449
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 43449
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 43449
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 43449
+New client attempting to connect on port: 54272-43449
+  Address = /127.0.1.1:43449
+Handshake exception on socket: 54272
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 43449
+New client attempting to connect on port: 54274-43449
+  Address = /127.0.1.1:43449
+This client on port 54274 has uuid c43d4639-45f9-41cd-a9d2-7f3cb31791de configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-c43d4639-45f9-41cd-a9d2-7f3cb31791de
+Taking next connection to: 43449
